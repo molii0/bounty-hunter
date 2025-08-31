@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>许丽娜个人主页</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+
+        /* Profile Section Styles */
+        .profile-section {
+            display: flex;
+            align-items: flex-start;
+            padding: 40px;
+            background-color: #ffffff;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-right: 40px;
+        }
+
+        .profile-info h1 {
+            font-size: 24px;
+            margin-top: 0;
+            color: #333333;
+        }
+
+        .profile-info p {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .detail-item i {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #4285f4;
+        }
+
+        .detail-item span {
+            font-size: 16px;
+            color: #333333;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        /* Education Section Styles */
+        .education-section {
+            background-color: #f8f9fa;
+            padding: 40px;
+        }
+
+        .education-section h2 {
+            font-size: 24px;
+            color: #333333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: #4285f4;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #4285f4;
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+            color: #333333;
+            margin-top: 0;
+        }
+
+        .timeline-item p {
+            font-size: 16px;
+            color: #666666;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+    </style>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <section class="profile-section">
+        <img src="https://imgur.la/images/2025/08/30/Weixin-Image_20250830104846_188_9.jpg" alt="许丽娜" class="profile-img">
+        <div class="profile-info">
+            <h1>许丽娜</h1>
+            <p>我叫许丽娜，来自印尼，目前是北京理工大学软件工程专业在读学生，同时也是一名留学生。自从踏入大学以来，我对软件开发充满了热情，不仅积极学习课堂上的理论知识，也不断在实践中探索新的技术方向。我对前端开发、后端架构以及算法领域都有着浓厚的兴趣，喜欢通过实际项目来锻炼自己的逻辑思维与动手能力。
+
+作为一名来自印尼的留学生，我深知跨文化交流和多元化背景能够为学习带来更多的启发。在与中国同学和国际同学的合作中，我不仅提升了自己的专业技能，也逐渐培养了跨文化沟通和团队协作的能力。我希望能在未来的学习和研究过程中，继续拓展视野，将不同文化中的思维方式与软件工程的创新结合起来。</p>
+            <div class="detail-item">
+                <i class="fas fa-user"></i>
+                <span>昵称：许丽娜</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>专业：软件工程</span>
+            </div>
+            <div class="detail-item">
+                <i class="fas fa-school"></i>
+                <span>学校：北京理工大学</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+                <a href="#"><i class="fab fa-qq"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="education-section">
+        <h2>教育经历</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>北京理工大学</h3>
+                <p>软件工程专业 | 本科</p>
+                <p>2024年 - 至今</p>
+                <p>在学校期间，学习了数据结构、算法、操作系统、计算机网络、前端开发、后端开发等多门专业课程，积极参与课程项目与技术社团活动，不断提升自己的编程与工程实践能力。</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,307 @@
+#re1 ul{
+	padding-left:100px;
+	margin-top:40px;
+	height:400px;
+	overflow-y:scroll;
+}
+#re1 li{
+	display:none;
+}
+#re1 .button{
+	width:200px;
+	height:40px;
+	position:relative;
+	border:1px solid #00000000;
+	border-radius:10px;
+	line-height:40px;
+	text-align: center;
+	transition:500ms;
+	background-color:#00000000;
+	color:black;
+}
+#re1 .button:hover{
+	background-color:white !important;
+	transition:500ms !important;
+}
+#re1 .script{
+	background-image:url(../img/script.png);
+	background-repeat:no-repeat;
+	background-position-y:-30px;
+	width:0px;
+	height:15px;
+	animation-duration:0.5s;
+	animation-fill-mode:forwards;
+}
+#re1 .clue{
+	font-family:'楷体';
+	border:1px solid #00000000;
+	display:none;
+	background-image:url('../img/note.png');
+	background-size:400px;
+	background-position-x:-50px;
+	background-position-y:-80px;
+	background-repeat: no-repeat;
+	width:320px;
+	height:250px;
+}
+#re1 .clue p{
+	width:250px;
+	margin-top:80px;
+	margin-left:30px;
+	color:black;
+}
+#re1 .op{
+	margin-left:600px;
+	margin-top:230px;
+	display:none;
+}
+#re1 #start{
+	color:black;
+	position:absolute;
+	background-color:transparent;
+	backdrop-filter: blur(8px) !important;
+	left:700px;
+	height:50px;
+	width:80px;
+	border:1px solid black;
+	border-radius:10px;
+	font-size:15px;
+	transition:500ms;
+}
+#re1 #start:hover{
+	background-color:white;
+	transition:500ms;
+	border-color:white;
+}
+
+#re2 .objectlist{
+	width:350px;
+	height:500px;
+	float:left;
+}
+#re2 .show{
+	width:80px;
+	height:80px;
+	float:left;
+	margin:10px;
+	border:1px solid grey;
+	border-radius: 10px;
+	color:white;
+}
+#re2 .show:hover{
+	border-color:white !important;
+}
+#re2 .object_picture{
+	width:500px;
+	height:400px;
+	position:absolute;
+	top:0;
+	right:0;
+}
+#re2 .pic{
+	text-align:center;
+	display:none;
+}
+#re2 .information{
+	width:450px;
+	height:80px;
+	position:absolute;
+	bottom:0;
+	right:0;
+}
+#re2 .info{
+	width:400px;
+	display:none;
+	color:black;
+}
+#re2 .container{
+	width:500px;
+	height:500px;
+	position:absolute;
+	right:0;
+	background-image:url('../img/paper.png');
+	background-repeat:no-repeat;
+	background-size:500px;
+}
+
+#re3 .character{
+	width:300px;
+	height:500px;
+	float:left;
+	color:white;
+}
+#re3 li{
+	width:200px;
+	height:30px;
+	border:1px solid white;
+	transition:500ms;
+	line-height: 30px;
+	text-align:center;
+}
+#re3 li:hover{
+	background-color:white !important;
+	color:black !important;
+	transition:500ms !important;
+}
+#re3 .chainfo{
+	display:none;
+}
+/* 黑色幕布，用于遮罩游戏场景 */
+.curtain{ 
+	width:1000px;
+	height:800px;
+	position:absolute;
+	background-color:black;	
+	left:50%;
+	top:50%;
+	transform:translate(-50%,-50%);
+	z-index:1000;
+	display:none;
+	text-align:center;
+	font-size:20px;
+	color:white;
+}
+.background_board{
+	width:1000px;
+	height:800px;
+	display:none;
+	background-color:black;
+}
+/* cg里的文字显示 */
+.caption{ 
+	position:absolute;
+	z-index:100000;
+	top:50%;
+	left:50%;
+	width:700px;
+	transform:translate(-50%,-50%);
+}
+.option{
+	width:1000px;
+	height:800px;
+	position:absolute;
+	z-index:12000;
+	background-color:transparent;
+	backdrop-filter: blur(8px);
+	display:none;
+}
+.option p{
+	font-size:30px;
+	color:transparent;
+	width:800px;
+	text-align: center;
+	color:white;
+	margin-top:100px;
+}
+.option li{
+	width:800px;
+	margin-top:30px;
+}
+.option button{
+	width:200px;
+	height:50px;
+	color:white;
+	border:1px solid white;
+	border-radius:10px;
+	background-color:transparent;
+	margin-left:255px;
+	font-size:20px;
+	transition:500ms;
+}
+.option button:hover{
+	background-color:white;
+	color:black;
+	transition:500ms;
+}
+.achievement{
+	width:200px;
+	height:80px;
+	position:absolute;
+	bottom:0;
+	right:-200px;
+	background-color:#333;
+	backdrop-filter: blur(8px);
+	z-index:100000;
+	color:white;
+	border-radius:10px;
+	animation-fill-mode:forwards;
+	animation-duration: 0.5s;
+}
+.achievement p{
+	width:100%;
+	height:20px;
+	text-align:center;
+	margin-top:10px;
+}
+.achievement div{
+	width:100%;
+	height:50px;
+	font-size:20px;
+	text-align:center;
+	line-height:60px;
+}
+
+@keyframes counter_achievement{
+	from{
+		right:0;
+	}
+	to{
+		right:-200px;
+	}
+}
+@keyframes achievement{
+	from{
+		right:-200px;
+	}
+	to{
+		right:0;
+	}
+}
+@keyframes leftrolling1{
+	from{
+		margin-left:0;
+	}
+	to{
+		margin-left:-800px;
+	}
+}
+@keyframes leftrolling2{
+	from{
+		margin-left:-800px;
+	}
+	to{
+		margin-left:-1600px;
+	}
+}
+@keyframes rightrolling1{
+	from{
+		margin-left:-800px;
+	}
+	to{
+		margin-left:0;
+	}
+}
+@keyframes rightrolling2{
+	from{
+		margin-left:-1600px;
+	}
+	to{
+		margin-left:-800px;
+	}
+}
+@keyframes drawline{
+	from{
+		width:0;
+	}
+	to{
+		width:200px;
+	}
+}
+@keyframes eraseline{
+	from{
+		width:200px;
+	}
+	to{
+		width:0;
+	}
+}

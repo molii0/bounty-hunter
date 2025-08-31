@@ -1,0 +1,166 @@
+/* --- 登录页面 - 复古悬赏令风格 --- */
+
+/* 1. 引入并设置基础字体 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cinzel', serif; /* 全局使用Cinzel字体 */
+}
+
+html,
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background-image: url('./background.jpg'); /* 和主页使用同一个背景图，保持统一 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+/* Logo样式保持不变，但你可以根据新背景调整位置 */
+.logo {
+  position: absolute;
+  z-index: 1000;
+}
+.mianlogo { top: -50px; left: 100px; }
+.teamlogo { bottom: -150px; right: 10px; }
+.logo img { width: 500px; height: 500px; }
+
+::selection {
+  background: #B8860B; /* 选中文本时的背景色 */
+  color: #fff;
+}
+
+/* 2. 登录框容器 - 改造为羊皮纸 */
+.wrapper {
+  max-width: 420px; /* 稍微加宽一点以适应新样式 */
+  /* 使用一张羊皮纸图片作为背景 */
+  background-image: url('./parchment-texture.jpeg'); 
+  background-size: 100% 100%; /* 拉伸以填满容器 */
+  padding: 40px 50px; /* 调整内边距 */
+  border-radius: 5px; /* 保留轻微圆角，模仿纸张卷边 */
+  box-shadow: 0px 15px 30px rgba(0,0,0,0.4); /* 加深阴影，更有立体感 */
+}
+
+/* 标题样式 - “赏金猎人” */
+.wrapper .title-text {
+  margin-bottom: 30px;
+}
+
+.wrapper .title {
+  font-size: 40px; /* 字体放大 */
+  font-weight: 700;
+  color: #4a2c0f; /* 深褐色墨水颜色 */
+  text-align: center;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2); /* 轻微的亮部高光 */
+}
+
+/* 移除不再需要的切换控件和表单容器的特定样式 */
+.wrapper .slide-controls,
+.wrapper .form-container {
+  width: 100%;
+  overflow: visible; /* 允许阴影等效果溢出 */
+}
+
+.form-container .form-inner {
+  display: block; /* 改为块级，因为只有一个表单 */
+  width: 100%;
+}
+
+.form-container .form-inner form {
+  width: 100%;
+}
+
+/* 3. 输入框 - 改造为羊皮纸上的凹槽 */
+.form-inner form .field {
+  height: 50px;
+  width: 100%;
+  margin-top: 25px;
+  position: relative;
+}
+
+.form-inner form .field input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  padding-left: 15px;
+  border-radius: 3px;
+  /* 边框改为深褐色，底部加粗，模仿墨水划线 */
+  border: 1px solid #9a7d5a;
+  border-bottom-width: 2px;
+  font-size: 16px;
+  color: #4a2c0f;
+  /* 背景设为半透明的纸张本色，有凹陷感 */
+  background-color: rgba(239, 229, 209, 0.5);
+  transition: all 0.3s ease;
+}
+
+.form-inner form .field input:focus {
+  border-color: #B8860B; /* 选中时边框变为金色 */
+  box-shadow: inset 0 0 8px rgba(184, 134, 11, 0.3); /* 轻微的金色内发光 */
+}
+
+.form-inner form .field input::placeholder {
+  color: #9a7d5a; /* 提示文字颜色 */
+}
+
+/* 4. 提交按钮 - 改造为复古金属牌 */
+form .btn {
+  height: 50px;
+  width: 100%;
+  margin-top: 35px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+}
+
+/* 移除旧的滑动渐变层 */
+form .btn .btn-layer {
+  display: none;
+}
+
+form .btn input[type="submit"],
+form .btn input[type="button"] {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: linear-gradient(to bottom, #5a462b, #4a3821); /* 深色木纹/金属渐变 */
+  border: 1px solid #b89b72; /* 黄铜色边框 */
+  color: #f4d27e; /* 烫金文字颜色 */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* 文字阴影 */
+  padding-left: 0;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form .btn:hover input[type="submit"],
+form .btn:hover input[type="button"] {
+  background: linear-gradient(to bottom, #6b5534, #5a4829); /* 悬停时变亮 */
+  color: #fff; /* 文字也变亮 */
+  box-shadow: 0 0 10px rgba(244, 210, 126, 0.5); /* 悬停时发光 */
+}
+
+/* 5. 链接样式 */
+.form-inner form .signup-link {
+  text-align: center;
+  margin-top: 25px;
+  color: #6a4c2f; /* 链接文字颜色 */
+}
+
+.form-inner form .signup-link a {
+  color: #B8860B; /* 链接高亮颜色 */
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.form-inner form .signup-link a:hover {
+  text-decoration: none; /* 悬停时去掉下划线，提供反馈 */
+}

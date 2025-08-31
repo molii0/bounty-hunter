@@ -1,0 +1,65 @@
+
+/* 引入一个免费的、具有史诗感的谷歌字体 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+body {
+    /* 使用本地背景图 */
+    background: url('../login/background.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    /* 设置基础字体 */
+    font-family: 'Cinzel', serif; /* 优先使用Cinzel字体，如果加载失败则使用通用衬线字体 */
+}
+
+#StartScreen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 使用transform居中，比margin更精确 */
+    width: 400px;
+    text-align: center;
+    padding: 5px 40px;
+    box-sizing: border-box;
+}
+
+/* 游戏标题样式 */
+#StartScreen h1 {
+    color: #fff;
+    font-size: 4em; /* 放大标题 */
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* 添加更深的文字阴影，使其在背景中更突出 */
+    margin-bottom: 40px; /* 增加标题和按钮的间距 */
+}
+
+/* 统一的按钮样式 */
+.menu-button {
+    /* 1. 质感与颜色：半透明的深棕色，融入背景 */
+    background-color: rgba(46, 38, 30, 0.65); /* 从画作阴影处提取的颜色，并设为半透明 */
+    
+    /* 2. 边框：用画作中的亮色作为边框，增加轮廓感 */
+    border: 2px solid rgba(184, 162, 122, 0.5); /* 从画作岩石亮部提取的颜色 */
+
+    /* 3. 尺寸与布局 */
+    width: 50%; /* 统一宽度 */
+    height: 50px;
+    margin-top: 25px; /* 统一间距 */
+    border-radius: 3px; /* 轻微的圆角，避免过于尖锐 */
+
+    /* 4. 字体 */
+    font-family: 'Cinzel', serif; /* 再次强调字体 */
+    font-size: 18px;
+    font-weight: 700; /* 加粗字体 */
+    color: rgba(255, 255, 255, 0.8); /* 使用带有透明度的白色，而不是纯白 */
+    
+    /* 5. 交互效果 */
+    cursor: pointer;
+    transition: all 0.3s ease; /* 平滑过渡动画 */
+}
+
+/* 鼠标悬停时的按钮样式 */
+.menu-button:hover {
+    background-color: rgba(66, 54, 44, 0.85); /* 背景变得更实、更亮一些 */
+    border-color: rgba(212, 189, 143, 0.9); /* 边框也更亮 */
+    color: #fff; /* 文字变为纯白 */
+    transform: scale(1.05); /* 轻微放大 */
+}

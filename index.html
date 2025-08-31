@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./webfonts/iconfont.css">
+    <link rel="stylesheet" href="./music-player/music-player.css" />
+    <link href="favicon.ico" type="images/x-icon" rel="icon">  
+    <title>赏金猎人</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            position: fixed;
+            background: #333;
+            padding: 0;
+            margin: 0;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #music-wrapper {
+            margin: 0 0;
+            border-width: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* iframe 过渡效果 */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.3s ease;
+            border: none;
+        }
+
+        iframe.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        iframe.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 预加载所有页面 -->
+    <iframe src="./login.html" id="login-frame" class="active" scrolling="no"></iframe>
+    <iframe src="./home/home.html" id="home-frame" class="hidden" scrolling="no"></iframe>
+
+    <div class="music-container" id="music-container">
+        <!-- 111 -->
+        <audio src="./music-player/music/musicroom.mp3" id="audio"></audio>
+
+        <div class="navigation">
+            <button id="prev" class="action-btn">
+                <i class="iconfont icon-backward_fill"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+                <i class="iconfont icon-play_fill"></i>
+            </button>
+            <button id="next" class="action-btn">
+                <i class="iconfont icon-play_forward_fill"></i>
+            </button>
+            <a id="currentMusic">CurrentMusic</a>
+        </div>
+    </div>
+    <div class="auto-play-music"></div>
+</body>
+<script src="./music-player/music-player.js"></script>
+
+<script>
+// 全局 iframe 切换函数
+function switchIframe(targetFrame) {
+    const loginFrame = document.getElementById('login-frame');
+    const homeFrame = document.getElementById('home-frame');
+    
+    if (targetFrame === 'login') {
+        loginFrame.classList.remove('hidden');
+        loginFrame.classList.add('active');
+        homeFrame.classList.remove('active');
+        homeFrame.classList.add('hidden');
+    } else if (targetFrame === 'home') {
+        homeFrame.classList.remove('hidden');
+        homeFrame.classList.add('active');
+        loginFrame.classList.remove('active');
+        loginFrame.classList.add('hidden');
+    }
+}
+
+// 暴露给子页面使用
+window.switchIframe = switchIframe;
+</script>
+
+</html>

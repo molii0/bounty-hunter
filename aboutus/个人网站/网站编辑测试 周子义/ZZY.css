@@ -1,0 +1,96 @@
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 楷体;
+    /* background-color: #E0E0E0; */
+    background-image: url(BG.jpg);
+}
+
+.top-left:hover,
+.bottom-right:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    transform: translateY(-8px) scale(1.15);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+/* --- 左上角方块的样式 --- */
+.top-left {
+    position: fixed;
+    top: 8vh;
+    left: 8vw;
+    width: 300px; 
+    height: 500px;
+    background-color: #87CEEB;
+    animation: slideInFromLeft 1.5s ease-out forwards;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-start;
+    gap: 50px; 
+    align-items: center; 
+    padding: 20px; 
+    box-sizing: border-box; 
+    border-radius: 10px; 
+    color: #333333;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    
+.profile-picture img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #87CEEB; 
+}
+
+/* --- 信息区域的样式 --- */
+.profile-info {
+    text-align: center;
+    text-shadow: 0 0px 6px #66FF99;
+    gap : 10px;
+    display: flex;
+}
+
+.profile-info .name {
+    margin: 0; 
+    font-size: 3em;
+    writing-mode: vertical-rl;
+}
+
+.profile-info .title {
+    margin: 5px 0 0; 
+    font-size: 2em;
+    font-weight: 300; 
+}
+
+/* 右下角方块 */
+.bottom-right {
+    position: fixed;
+    bottom: 8vh;
+    right: 8vw;
+    width: 800px;
+    height: 600px;
+    background-color: #e4ddca;
+    animation: slideInFromRight 1.5s ease-out forwards;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
+
+.intro{
+    padding-top:3em;
+    text-align: left;
+    font-size: 1.5em;
+    text-indent: 2em;
+    width:80%;
+    line-height: 1.2em;
+    margin:auto;
+}
+
+@keyframes slideInFromLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInFromRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}

@@ -1,0 +1,64 @@
+.hero{
+	background-image:url(../img/jane.png);
+	width:48px;
+	height:48px;
+	position:absolute;  /* 改为absolute，避免影响文档流 */
+	z-index:10;
+	animation-duration:0.5s;
+	animation-timing-function: steps(2);
+	animation-iteration-count: infinite;
+}
+.npc{
+	width:48px;
+	height:48px;
+	position:absolute;
+	z-index:9;
+	background-position-x:-48px;
+	animation-duration:0.5s;
+	animation-timing-function: steps(2);
+	animation-iteration-count: infinite;
+}
+@keyframes backward{
+	0%{
+		background-position:0 0;
+	}
+	50%{
+		background-position:-96px 0;
+	}
+	100%{
+		background-position:0 0;
+	}
+}
+@keyframes turnleft{
+	0%{
+		background-position:0 -48px;
+	}
+	50%{
+		background-position:-96px -48px;
+	}
+	100%{
+		background-position:0 -48px;
+	}
+}
+@keyframes turnright{
+	0%{
+		background-position:0 -96px;
+	}
+	50%{
+		background-position:-96px -96px;
+	}
+	100%{
+		background-position:0 -96px;
+	}
+}
+@keyframes forward{
+	0%{
+		background-position:0 -144px;
+	}
+	50%{
+		background-position:-96px -144px;
+	}
+	100%{
+		background-position:0 -144px;
+	}
+}

@@ -1,0 +1,47 @@
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .avatar-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        .avatar-fixed {
+            border: 4px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="avatar-container mb-8">
+                <!-- 固定使用同目录下的fish.jpg -->
+                <img src="fish.jpg" alt="个人头像" 
+                     class="w-full h-full rounded-full avatar-fixed object-cover">
+            </div>
+            <h1 class="text-4xl font-bold mb-2">林伟豪</h1>
+            <p class="text-xl">分工：美工</p>
+        </div>
+    </header>
+
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-6">关于我</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    虽然我知道在大学学习计算机相关专业需要参与程序项目作为阶段成果，但我万万没想到学校的课程进展如此之快，初入大二就要在三周之内完成一套项目，然而我此前学习的代码语言知识只有c语言基础。因为我确实存在很多方面的不足，所以我只能模棱两可地进行小组的美工工作，在网上搜罗合适的素材并将其制作进游戏中，尤其是RPG Maker中的贴图素材，如有必要，我会自行绘制一些简单的素材。由于时间与经验问题，我无法在该项目中充实贡献自己的力量，但我希望，随着资历的发展，我也能制作出自己的独立游戏。
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

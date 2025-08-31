@@ -1,0 +1,181 @@
+ <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            /* 添加背景图片 */
+            background-image: url('背景.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        /* 添加半透明遮罩层，确保内容可读性 */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, rgba(110, 142, 251, 0.9), rgba(167, 119, 227, 0.9));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        .photo-container {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .profile-photo {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.02);
+        }
+        
+        .bio-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            color: #6e8efb;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 0.7rem;
+            font-size: 1.8rem;
+        }
+        
+        .bio-text {
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .bio-text p {
+            margin-bottom: 1.2rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.8rem;
+            background: rgba(51, 51, 51, 0.9);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            margin-top: 2rem;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-content {
+                flex-direction: column;
+                padding: 1.8rem;
+            }
+            
+            .photo-container, .bio-container {
+                min-width: 100%;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            body {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>许辰闯</h1>
+            <p>项目经理</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="profile-content">
+            <div class="photo-container">
+                <img src="许辰闯.jpg" alt="个人照片" class="profile-photo">
+                <p style="margin-top: 1.2rem; font-style: italic; color: #666;">这是我的个人照片</p>
+            </div>
+            
+            <div class="bio-container">
+                <h2>个人简介</h2>
+                <div class="bio-text">
+                    <p>我是许辰闯，是北京理工大学软件工程专业的一名学生，担任本游戏制作的项目经理。</p>
+                    
+                    <p>我是一个gamer，网游、主机游戏都有涉猎，最让我印象深刻的是空洞骑士这款游戏，它开启了我主机游戏游玩的旅程，也让我真正明白了游戏的艺术。</p>
+                    
+                    <p>当我不在电脑前时，我喜欢骑行和阅读。这些爱好丰富了我的生活，也排解了日常学习中的苦闷和焦虑。</p>
+                    
+                    <p>我很高兴能够和我的组员们在小学期内共同完成一个游戏项目，让我了解了项目开发的过程，切实感受到了团队合作的意义，希望能和大家一起进步。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 许辰闯 - 个人网页</p>
+        </div>
+    </footer>
+</body>
+</html>

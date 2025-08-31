@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+.music-container {
+  /* 使用和按钮风格一致的半透明深棕色，模仿旧木料质感 */
+  background-color: rgba(46, 38, 30, 0.8); 
+  
+  /* 使用和按钮风格一致的亮色边框，模仿黄铜镶边 */
+  border: 1px solid rgba(184, 162, 122, 0.6); 
+
+  /* 减少圆角，使其更像一个打磨过的木盒 */
+  border-radius: 5px; 
+
+  /* 添加细微的阴影，让它有立体感 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+
+  /* 基本布局属性 */
+  display: flex;
+  padding: 0px 15px;
+  position: absolute;
+  right: 10px; /* 稍微增加一点边距 */
+  top: 10px;
+  z-index: 1000; /* 确保它在最上层 */
+
+  /* 移除原来的动画 */
+  animation: none; 
+}
+
+@keyframes noticeMe {
+  from {
+    background-color: rgb(255, 255, 255);
+  }
+
+  to {
+    background-color: rgba(206, 206, 206, 1);
+  }
+}
+
+/* 2. 导航按钮区域 */
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* 3. 图标按钮样式 */
+.action-btn {
+  background-color: transparent; /* 按钮背景透明 */
+  border: 0;
+  
+  /* 将图标颜色改为复古的黄铜色 */
+  color: rgba(212, 189, 143, 0.8); 
+  
+  font-size: 18px;
+  cursor: pointer;
+  padding: 9px;
+  transition: all 0.2s ease; /* 平滑过渡 */
+
+  /* 为图标添加细微的阴影，使其看起来像雕刻上去的 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.action-btn.action-btn-big {
+  font-size: 22px; /* 稍微增大播放按钮 */
+}
+
+/* 鼠标悬停时，图标会发光 */
+.action-btn:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #fff; /* 发光效果 */
+}
+
+.action-btn:focus {
+  outline: 0;
+}
+
+/* 4. 当前音乐的文字样式 (可选，但建议添加) */
+#currentMusic {
+  font-family: 'Cinzel', serif; /* 和主菜单按钮使用相同字体 */
+  font-size: 12px;
+  color: rgba(212, 189, 143, 0.7);
+  text-decoration: none;
+  margin-left: 10px;
+  align-self: center; /* 垂直居中 */
+  pointer-events: none; /* 让文字不可点击 */
+}
+
+/* 5. 自动播放覆盖层 (这个保持不变，因为它需要是透明的) */
+.auto-play-music {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 10;
+}
+

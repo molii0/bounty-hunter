@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>游戏页</title>
+	<link href="css/hero.css" type="text/css" rel="stylesheet">
+	<link href="css/text.css" type="text/css" rel="stylesheet">
+	<link href="css/reasoning.css" type="text/css" rel="stylesheet">
+	<link href="css/ending.css" type="text/css" rel="stylesheet">
+	<link href="css/manual.css" type="text/css" rel="stylesheet">
+	<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script language="javascript" src="js/reasoning.js"></script>
+	<style>
+		*{
+			margin:0;
+		}
+		::-webkit-scrollbar {
+  			display: none;
+		}
+		/* 主要游戏窗口的设置 */
+		.window{
+			width:1000px;
+			height:800px;
+			position:absolute;
+			background-color:black;
+			top:50%;
+			left:50%;
+			transform:translate(-50%,-50%);
+			/* border:30px solid;
+			border-image: url(./img/edge.png) 27; */
+			background-repeat:no-repeat;
+			background-size: 1000px 800px;
+			overflow:hidden;
+		}
+		/* 绘制墙用的 */
+		/* canvas {
+        border: 1px solid black;
+        position: absolute; 
+        z-index: 1000; 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    } */
+	</style>
+	
+	<!-- 游戏进度保存 -->
+	<script>
+		setTimeout(function(){
+			$('.manual').fadeOut(500);
+		},5000);
+		var usr=localStorage.getItem('Hound_'+"CurrentPlayer");
+		var archive_pointer=Number(localStorage.getItem('Hound_'+usr+'_archive_pointer'));
+		function save_hint(text){
+			if(text=='当前存档已满，已覆盖最早的现有存档！') $('.hint').css('width','300px');
+			$('.hint').fadeIn(500);
+			$('.hint').html(text);
+			setTimeout(function(){
+				$(".hint").fadeOut(2000);
+				setTimeout(function(){
+					if(text=='当前存档已满，已覆盖最早的现有存档！') $('.hint').css('width','200px');
+				},2000);
+			},1500);
+		}
+		function click_save(){
+			if(archive_pointer>8){
+				save_hint('当前存档已满，已覆盖最早的现有存档！');
+				save('archive'+archive_pointer%9,archive_pointer%9+1);
+			}
+			else{
+				save('archive'+archive_pointer,archive_pointer+1);
+				save_hint('存档成功！');
+			}
+			archive_pointer++;
+			localStorage.setItem('Hound_'+usr+'_archive_pointer',archive_pointer);
+		}
+	</script>
+</head>
+<!-- 游戏背景图片设置，有点丑陋目前 -->
+<body style="background-image: url('./img/usbackground.jpg'); background-size: cover; background-position: center; background-repeat: repeat;">
+
+	<div class="window">
+		<div id="coordHud" style="position:absolute; top:8px; left:8px; padding:4px 8px; background: rgba(0,0,0,0.6); color:#0f0; font: 12px/1 monospace; z-index: 99999; pointer-events:none;">X: -, Y: - | phase: -</div>
+		<!-- 提供“继续游戏”、“保存游戏”和“退出游戏”三个选项。
+		“继续游戏”按钮隐藏当前菜单。
+		“保存游戏”按钮调用 click_save() 函数。
+		“退出游戏”按钮重定向到主菜单页面。 -->
+		<div class="option">
+			<p>PAUSE</p>
+			<ul type="none">
+				<li><button onclick="option_now=0;$('.option').css('display','none')">继续游戏</button></li>
+				<li><button onclick="click_save()">保存游戏</button></li>
+				<li><button onclick="parent.location.href='./index.html'">退出游戏</button></li>
+			</ul>
+		</div>
+		<div class="achievement">
+			<!-- 显示获得的成就，当前示例文本为“哈哈哈哈哈”。 -->
+			<p>获得成就</p>
+			<div id="achieve">哈哈哈哈哈</div>
+		</div>
+		<!-- 嵌入了一个数独小游戏的iframe。
+		提供“退出”按钮，点击后隐藏数独游戏界面并重置相关样式。 -->
+		<div class="ylgy" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+
+			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
+			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+				<iframe src="./minigame/ylgy/ylgy.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<button onclick="$('.ylgy').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+			</div>
+		</div>
+		<!-- <div class="llk">
+			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
+		</div> -->
+		<!-- <div class="llk" style="display: none;">
+			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
+		</div> -->
+		<!-- <div class="llk" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
+		</div> -->
+		<!-- <div class="llk" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: -1; pointer-events: none;"></div>
+			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
+		</div> -->
+
+		<div class="llk" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+
+			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
+			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+				<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+			</div>
+		</div>
+		
+		<div class="battle1" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+
+			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
+			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+				<iframe src="./minigame/battle/battle1.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<button onclick="$('.battle1').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+			</div>
+		</div>
+
+		<div class="battle2" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+
+			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
+			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+				<iframe src="./minigame/battle/battle2.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<button onclick="$('.battle2').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+			</div>
+		</div>
+		
+		<div class="battle3" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+
+			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
+			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+				<iframe src="./minigame/battle/battle3.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<button onclick="$('.battle3').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+			</div>
+		</div>
+
+		
+
+		<!-- 显示游戏操作指南，包括人物移动、物品交互、NPC对话等操作说明。 -->
+		<div class="manual">
+			<div style="margin-top:150px">
+				<p>W,A,S,D:人物移动</p>
+				<p>E:与NPC对话/进入下一个场景</p>
+				 <!-- <p>F:打开道路指引</p> -->
+				<!-- <p>X,Z:在线索板中切换页面。进入推理页面后按X即可查看背包。</p>  -->
+			</div>
+		</div>
+		<!-- 显示游戏角色，设置了初始位置 -->
+		<div class="hero" style="left:200px;top:200px;"></div>
+		<!-- 显示游戏中的NPC角色。 -->
+		<div class="npc" id="npc1"></div>
+		<div class="npc" id="npc2"></div>
+		<div class="npc" id="npc3"></div>
+		<!-- 包含图片和文本容器，用于显示游戏中的对话和提示。 -->
+		<div class="text">
+			<div class="picture"></div>
+			<div class="container">
+				<div class="title"></div>
+				<div class="texture"></div>
+			</div>
+		</div>
+		<!-- 提供一个输入框和确认按钮，用于玩家输入密码或进行其他交互操作。 -->
+		<div class="interact_zone">
+			<input type="text" id="code" placeholder="在此处输入密码"><br>
+			<button onclick="codecheck()">确认</button>
+		</div>
+		<!-- 提供“是”和“否”两个按钮，用于玩家进行选择 -->
+		<div class="select_zone">
+			<p class="item"></p>
+			<div class="selection">
+				<button onclick="codecheck(1)">是</button>
+				<button onclick="codecheck(0)">否</button>
+			</div>
+		</div>
+		<!-- 提供三个按钮，用于玩家进行对话选择。 -->
+		<div class="dialog_zone">
+			<button id="choice1" onclick="choice(0)" style="margin-top:70px"></button><br>
+			<button id="choice2" onclick="choice(1)" style="margin-top:30px"></button><br>
+		</div>
+		<!-- 用于显示游戏中的其他信息。 -->
+		<div class="display"></div>
+		<!-- 用于显示游戏中的提示信息。 -->
+		<div class="hint"></div>
+
+
+
+				<!-- 幕布 (<div class="curtain">)用于显示游戏中的背景和字幕。 -->
+		<div class="curtain">
+			<div class="background_board"></div>
+			<div class="caption"></div>
+		</div>
+		<!-- 显示游戏结局，包括结局名称、图片和介绍，以及“回到主菜单”按钮。 -->
+		<div class="ending">
+			<div class="content">
+				<div id="session1">
+					<div class="startline">达成结局</div>
+					<div class="division"></div>
+					<div class="ending_name"></div>
+				</div>
+				<div id="session2">
+					<div class="ending_picture" align="center"></div>
+					<div class="ending_introduce"></div>
+				</div>
+				<div id="session3">
+					<div class="thanks">感谢游玩</div>
+					<button onclick="parent.location.href='./index.html'">回到主菜单</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 绘制墙用的 -->
+	<!-- <canvas id="mapCanvas" width="1000" height="800"></canvas> -->
+
+	<script language="javascript" src="js/archive.js"></script>
+	<script language="javascript" src="js/patch.js"></script>
+	<script language="javascript" src="js/init.js"></script>
+	<script language="javascript" src="js/clue.js"></script>
+	<script language="javascript" src="js/npc.js"></script>	
+	<script language="javascript" src="js/hurdle.js"></script>
+	<script language="javascript" src="js/map.js"></script>
+	<script language="javascript" src="js/decrypt.js"></script>
+	<script language="javascript" src="js/interact.js"></script>
+	<script language="javascript" src="js/end.js"></script>
+	<script language="javascript" src="js/startgame.js"></script>
+	<script language="javascript" src="js/object.js"></script>
+
+	<style>
+		#myImage {
+			position: fixed; /* 固定位置 */
+			top: 50%; /* 垂直居中 */
+			left: 50%; /* 水平居中 */
+			transform: translate(-50%, -50%); /* 调整偏移量以实现真正的居中 */
+			z-index: 1000; /* 置于最顶层 */
+			display: none; /* 保持隐藏状态，除非通过JavaScript显示 */
+		}
+	</style>
+	<img id="myImage" src="" style="display: none;" />
+
+    <script src="js/interact.js"></script>
+</body>
+
+</html>

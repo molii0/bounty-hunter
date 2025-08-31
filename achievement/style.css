@@ -1,0 +1,190 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background: url(../login/background.jpg) no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	text-align: left;
+	color: #8F98A0;
+	font-size: 14px;
+	margin:0;
+	padding:0;
+}
+.content {
+	background: #3E3A35;
+	position: relative;
+	width: 100%;
+	height: 90px;
+	margin: 0px auto;
+	text-align: center;
+	z-index: 402;
+}
+#content .supernav_container {
+	position: absolute;
+	left: 200px
+}
+#archivebutton{
+	background-color:#bb6e2e;
+	color:white;
+	width:150px;
+	height:48px;
+	border-radius:8px;
+	margin-top: 25px;
+	margin-left:0;
+	border: none;
+	font-size:25px;
+	font-weight:300;
+	font-family: 楷体;
+}
+#archivebutton:hover{
+	cursor:pointer;
+	background:#4491D1;
+}
+
+#aboutbutton{
+	background-color:#bb6e2e;
+	color:white;
+	width:150px;
+	height:48px;
+	border-radius:8px;
+	margin-top: 25px;
+	margin-left:120px;
+	border: none;
+	font-size:25px;
+	font-weight:300;
+	font-family:楷体;
+}
+#aboutbutton:hover{
+	cursor:pointer;
+	background:#4491D1;
+}
+#backbutton{
+	background-color:#bb6e2e;
+	color:white;
+	width:150px;
+	height:48px;
+	border-radius:8px;
+	margin-top: 25px;
+	margin-left:120px;
+	border: none;
+	font-size:25px;
+	font-weight:300;
+	font-family:楷体;
+}
+#backbutton:hover{
+	cursor:pointer;
+	background:#4491D1;
+}
+.menuitem {
+    display: block;
+    position: relative;
+    padding-top: 45px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 7px;
+    line-height: 16px;
+    float: left;
+    font-size: 14px;
+    color: #dcdedf;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.supernav {
+	&::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 2.5px;
+		margin-top: 2px;
+		}
+}
+a {
+	color: #ebebeb;
+	text-decoration: none;
+	cursor: pointer;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.maincontent {
+	width: 948px;
+	margin: 0 auto;
+	max-height: calc(100vh - 140px);
+	overflow-y: auto;
+}
+.achieveRow {
+    position: relative;
+    padding-left: 71px;
+    min-height: 66px;
+    margin-bottom: 12px;
+}
+.achieveTxtHolder {
+    height: 64px;
+    position: relative;
+    background: black;
+    display: flex;
+    align-items: center;
+}
+.achieveTxt {
+    padding: 6px 6px 6px 6px;
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+	line-height:6px;
+}
+.achieveTxt h3 {
+    font-weight: bold;
+    font-size: 20px;
+    color: #e1e1e1;
+}
+.achieveTxt h5 {
+    font-weight: normal;
+    font-size: 12px;
+    color: #898989;
+    white-space: normal;
+    max-height: 28px;
+}
+.achieveImgHolder img{
+    width: 64px;
+    height: 64px;
+}
+.achieveImgHolder {
+	position: absolute;
+	left: 0;
+	top: 1px;
+}
+.menuitem {
+	display: block;
+	position: relative;
+
+	padding-top: 45px;
+	padding-left: 7px;
+	padding-right: 7px;
+	padding-bottom: 7px;
+	line-height: 16px;
+
+	float: left;
+	font-size: 14px;
+	color: #dcdedf;
+	text-transform: uppercase;
+	font-size: 16px;
+    font-family: "Motiva Sans", "Twemoji", "Noto Sans", Helvetica, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.supernav {
+	&::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 2.5px;
+		margin-top: 2px;
+		}
+}
+

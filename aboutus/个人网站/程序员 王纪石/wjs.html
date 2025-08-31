@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人主页</title>
+    <style>
+        /* 引入一个适合阅读的、略带手写感的字体 */
+        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;700&display=swap');
+
+        /* --- 基础样式 --- */
+        body {
+            /* 使用带有细微噪点的米白色背景，模仿纸张质感 */
+            background-color: #fdfaf6;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW3W1tZ5eXlsbW3g4ODZ2dnPz8/b29vR0dHU1NTg4ODa2trPz8/Mzc3S0tLHx8fFxcWNjg5KSkpOTk7t7e3x8fHw8PDn5+fZ2dnW1tYhISElJSUgICAAAAA3SmRkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wIEBgEszrAqPgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAOSURBVEiJ7dJBEQAwCAMwioZf+xm7s5GgpBmc/SAZAAAAAAAAAJD5f3gAjuUAPwhgANsAAAAASUVORK5CYII=');
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #4a4a4a; /* 深灰色文字，比纯黑更柔和 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- 整体容器 --- */
+        .container {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* 保证内部元素不超出圆角 */
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        /* --- 左栏：个人档案 --- */
+        .profile {
+            flex-basis: 280px; /* 左栏固定宽度 */
+            flex-shrink: 0;
+            background-color: #fff;
+            padding: 40px 30px;
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+
+        .avatar {
+            width: 160px;
+            height: 180px;
+            border-radius: 8px; /* 方形圆角 */
+            border: 4px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            /* 使用一个更有趣的标题字体 */
+            font-family: 'ZCOOL KuaiLe', sans-serif;
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .tagline {
+            color: #888;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .profile h3 {
+            color: #aaa;
+            font-size: 0.9em;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .links a {
+            display: block;
+            background-color: #f5f5f5;
+            color: #555;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            background-color: #E87A5D; /* 温暖的橙色 */
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* --- 右栏：自我介绍 --- */
+        .introduction {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto; /* 如果内容超长，可以滚动 */
+            line-height: 1.8; /* 更大的行高，适合长文阅读 */
+        }
+
+        .introduction h2 {
+            font-family: 'ZCOOL KuaiLe', sans-serif;
+            font-size: 2em;
+            color: #333;
+            border-bottom: 2px solid #E87A5D;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+
+        .introduction p {
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            letter-spacing: 0.5px; /* 微调字间距 */
+        }
+        
+        /* --- 动画效果 --- */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- 响应式设计：在手机等小屏幕上，两栏变为上下布局 --- */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .profile {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ============================== -->
+        <!-- |         左侧个人档案栏        | -->
+        <!-- ============================== -->
+        <aside class="profile">
+            <!-- 替换你的方形头像 -->
+            <img src="./avatar.png" alt="头像" class="avatar">
+            
+            <!-- 修改你的ID -->
+            <h1>王纪石</h1>
+            
+            <!-- 修改你的短签名 -->
+            <p class="tagline">分工 ： 程序员</p>
+
+            <h3>传送</h3>
+            <div class="links">
+                <!-- 修改你的链接 -->
+                <a href="https://www.bilibili.com" target="_blank">Bilibili？</a>
+                <a href="https://github.com/CLANNADForever?tab=repositories" target="_blank">GitHub</a>
+                <a href="https://bgm.tv/user/886307" target="_blank">？</a>
+            </div>
+        </aside>
+
+        <!-- ============================== -->
+        <!-- |         右侧自我介绍栏        | -->
+        <!-- ============================== -->
+        <main class="introduction">
+            <h2>关于我 | About Me</h2>
+
+            <p>
+                面向github、cursor的程序员，在本项目中主要进行面向往届作品的编程。
+            </p>
+            <p>
+                平时基本不怎么碰前端，这次被赶鸭子上架，希望能丰富自己前端的经验和知识。
+            </p>
+            <p>
+                并非资深gamer，但对剧情向游戏、视觉小说、galgame（不是）等涉猎较多，希望能做出一个好故事。
+            </p>
+            <p>
+                游戏虽玩的不多，但每一部都是细细品味，吹毛求疵，因此在本次项目中，进行了较多符合游戏玩家习惯的优化。
+                感谢原型作品明确的架构和诸多不符合游戏玩家常识的设计，为我提供了优化空间。
+            </p>
+            <p>
+                希望项目能够顺利完成。
+            </p>
+        </main>
+    </div>
+
+</body>
+</html>
