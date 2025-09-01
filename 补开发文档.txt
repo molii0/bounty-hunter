@@ -1,0 +1,42 @@
+单页面架构：采用 `index.html` + `iframe` 的模式，保证了背景音乐的连续播放。
+index里本质上只有两个部分：
+<iframe src="./login.html" id="login-frame" scrolling="no"></iframe>
+<div class="music-container" id="music-container">
+第一部分用iframe又打开一个html，这个html和index在同一路径，所以浏览器不会拦截。通过改变这个html的页面（window.location.href = './home/home.html'）
+来实现页面的跳转，但本质上还在index，这一点在浏览器路径上也能看出来。
+第二部分是一个音乐播放器，完全独立于任何其他页面，包括但不限于登录，注册，存档，甚至是游戏页，所以点到音乐播放器上，相当于
+
+
+
+场景加载与切换：支持在不同地图场景之间进行跳转。  
+通过init.js里的last_phase和now_phase追踪上个场景和当前场景，用map.js的transform（phase）来跳转。追踪变量在loadmap最上面自动更新
+
+
+
+角色移动：支持使用 `W/A/S/D` 键进行八方向移动。  碰撞检测：支持配置地图边界和障碍物，阻止玩家穿越。
+
+interact.js 里的 document.onkeydown=function(event)检测键盘wasd（e）,把对应方向变量设成1，
+下面一长串的setInterval计时器检测四个方向变量，来确定现在的方向来移动和播放行走动画
+切换地图时loadmap更新wallx和wally，设置墙壁，移动时（interact，和上面同一个计时器里）调用hurdle.js中的check计算位置极限值（这部分逻辑我都没看）
+检测坐标偏移5后会不会过极限值，如果不会就移动5，否则就到极限值
+
+
+
+上下文交互：支持使用 `E` 键与NPC和物品进行交互，换场景也是e
+
+与wasd同一个计时器，检测e，如果按e，就检测当前场景的所有person，obj，door，如果当前角色在某个交互的hotzone里（计算在hurdle.js），
+就与它交互（dialog/interact/transform）
+
+
+
+对话系统：支持顺序对话、循环对话和简单的对话分支。
+
+init.js设置全局变量管理某个npc的对话，npc.js里设置对应man的对话switchcase：
+（均为大概率情况，还有更复杂的就不解释了）每个case都++就是纯顺序，最后一个重置到0就是纯循环，default就是反复对话出同一句
+分支本质上就是把全局变量设置的远一点，如果直接进结局就在对话里直接进cg()或者end()    （end的本质和cg应该没太大区别，怎么跳转回主页我还没看）
+
+
+
+旁白/CG系统：支持显示旁白文本和基于序列图片的CG播放。
+
+在patch.js的cg(),本质就是黑幕布/图片打底，设置时间来控制文字出现和消失
