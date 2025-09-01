@@ -27,11 +27,10 @@ function log() {
             let password = localStorage["Sec-Sight-" + logUN];
             //判断用户输入的密码和注册的密码是否一致
             if (logPW === password) {
-                // alert("登录成功！");
+                // ("登录成功！");
                 document.getElementById('logUN').value = "";
                 document.getElementById('logPW').value = "";
                 localStorage.setItem("Sec-Sight-current-username", logUN);
-                
                 // 直接跳转到home页面
                 window.location.href = './home/home.html';
             } else {

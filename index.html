@@ -78,6 +78,20 @@ function controlMusic(action) {
     console.log('Music control: ' + action);
 }
 
+// 添加事件监听器，当点击音乐播放器时，通知游戏页面重置移动状态
+document.querySelector('.music-container').addEventListener('click', function() {
+  // 如果存在游戏页面的iframe，则通知游戏页面重置移动状态
+  try {
+    // 尝试获取游戏页面的window对象
+    var gameWindow = document.querySelector('iframe[src*="game.html"]');
+    if (gameWindow && gameWindow.contentWindow) {
+      // 调用游戏页面中的重置函数
+      gameWindow.contentWindow.resetMovement();
+    }
+  } catch (e) {
+    console.log('无法重置游戏移动状态:', e);
+  }
+});
 // 暴露给子页面使用
 window.controlMusic = controlMusic;
 </script>
