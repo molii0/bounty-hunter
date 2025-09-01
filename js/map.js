@@ -82,7 +82,7 @@ function loadmap(phase){
 		
 		npc = [[425, 525, 40, 'villager_01'], ];
 		$('#npc1').css('display','block');
-		$('#npc1').css('background-image','url("./img/villager_01.png")');
+		$('#npc1').css('background-image','url("./img/character/villager_01.png")');
 		$('#npc1').css('left','425px');
 		$('#npc1').css('top','525px');
 		$('#npc2').css('display','none');
@@ -120,12 +120,12 @@ function loadmap(phase){
 		door=[[404,616,50,'street_from_home_to_bar']]; 
 
 		$('#npc1').css('display','block');
-		$('#npc1').css('background-image','url("./img/barman.png")');
+		$('#npc1').css('background-image','url("./img/character/barman.png")');
 		$('#npc1').css('left','240px');
 		$('#npc1').css('top','475px'); 
 
 		$('#npc2').css('display','block');
-		$('#npc2').css('background-image','url("./img/student_01.png")');
+		$('#npc2').css('background-image','url("./img/character/student_01.png")');
 		$('#npc2').css('left','524px');
 		$('#npc2').css('top','531px');
 
