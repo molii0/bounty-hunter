@@ -211,16 +211,35 @@ function dialog(man){
 			case 5:{
 				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
 				title.innerHTML='韦斯';
-				texture.innerHTML='那可真不幸，我喜欢广交朋友，现在地图是我的了';
+				texture.innerHTML='那可真不幸，我喜欢广交朋友，现在地图是我的了（即将进入与韦斯的战斗）';
 				old_knight++;
-				person='end';
 				break;
 			}
 			case 6:{
+				picture.innerHTML='';
+				title.innerHTML='';
+				texture.innerHTML='(战斗结束了)';
+				$('.game1').css('display','block');
+				break;
+			}
+			case 7:{
 				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
-				title.innerHTML='杰恩';
-				texture.innerHTML='（把地图展示给韦斯）你见过这个东西吗？';
-				old_knight++;
+				title.innerHTML='韦斯';
+				texture.innerHTML='你赢了';
+				person='end';
+				break;
+			}
+			case 8:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='你输了';
+				person='end';
+				break;
+			}
+			case 20:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='还没做';
 				person='end';
 				break;
 			}
@@ -245,7 +264,7 @@ function choice(num){
 				picture.innerHTML=''; // 旁白
 				title.innerHTML='';
 				texture.innerHTML='你与韦斯一拍即合结伴同行，在韦斯的带领下来到德莱伯爵的密室，而你要找的宝石钥匙就在里面.';
-				old_knight=6;
+				old_knight=20;
 				break;
 			}
 			case 1:{
