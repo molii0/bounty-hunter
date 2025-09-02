@@ -231,7 +231,7 @@
 				</div>
 				<div id="session3">
 					<div class="thanks">感谢游玩</div>
-					<button onclick="parent.location.href='./index.html'">回到主菜单</button>
+					<button onclick="window.location.href='./login.html'">回到主菜单</button>
 				</div>
 			</div>
 		</div>
@@ -266,6 +266,20 @@
 	<img id="myImage" src="" style="display: none;" />
 
     <script src="js/interact.js"></script>
+    
+    <script>
+    // 添加点击事件监听器，点击游戏页面时重新获取焦点
+    document.addEventListener('click', function() {
+        // 确保游戏窗口获得焦点
+        window.focus();
+    });
+    
+    // 添加鼠标进入事件监听器
+    document.addEventListener('mouseenter', function() {
+        // 确保游戏窗口获得焦点
+        window.focus();
+    });
+    </script>
 </body>
 
 </html>

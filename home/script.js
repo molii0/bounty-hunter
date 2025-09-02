@@ -18,13 +18,6 @@ function about(){
     window.open("../aboutus/introduction.html","_self");
 }
 function logoutToIndex(){
-    if (window.parent && window.parent !== window) {
-        // 在iframe中，使用全局切换函数回到登录页
-        if (window.parent.switchIframe) {
-            window.parent.switchIframe('login');
-        }
-    } else {
-        // 如果不在iframe中，直接跳转
-        window.location.href = '../index.html';
-    }
+    // 直接跳转到index.html
+    window.location.href = '../login.html';
 }

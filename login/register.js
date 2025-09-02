@@ -28,20 +28,7 @@ function reg() {
             }));
             alert("注册成功！");
             //注册成功后返回到主页面
-            if (window.parent && window.parent !== window) {
-                // 在iframe中，使用全局切换函数回到登录页
-                if (window.parent.switchIframe) {
-                    window.parent.switchIframe('login');
-                }
-                // 同步重置 login-frame 的内容为登录页
-                const loginFrameEl = window.parent.document.getElementById('login-frame');
-                if (loginFrameEl) {
-                    loginFrameEl.src = './login.html';
-                }
-            } else {
-                // 如果不在iframe中，直接跳转
-                window.location.href = './index.html';
-            }
+            window.location.href = './login.html';
         }
     }
 }

@@ -27,21 +27,12 @@ function log() {
             let password = localStorage["Sec-Sight-" + logUN];
             //判断用户输入的密码和注册的密码是否一致
             if (logPW === password) {
-                // alert("登录成功！");
+                // ("登录成功！");
                 document.getElementById('logUN').value = "";
                 document.getElementById('logPW').value = "";
                 localStorage.setItem("Sec-Sight-current-username", logUN);
-                
-                // 点击登录后控制页面跳转,先跳转到登录再从登录跳转到游戏.
-                if (window.parent && window.parent !== window) {
-                    // 在iframe中，使用全局切换函数
-                    if (window.parent.switchIframe) {
-                        window.parent.switchIframe('home');
-                    }
-                } else {
-                    // 如果不在iframe中，直接跳转
-                    window.location.href = './home/home.html';
-                }
+                // 直接跳转到home页面
+                window.location.href = './home/home.html';
             } else {
                 alert("密码错误，请重新输入");
                 document.getElementById('logPW').value = "";
