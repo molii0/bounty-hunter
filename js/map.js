@@ -14,6 +14,9 @@ function loadmap(phase){
 	// 并初始化 wallx、wally、object 和 npc 数组，这些数组分别定义了墙壁、物体和 NPC 的位置和属性。
 	//下面的逻辑类似
 	if(phase=='home'){
+		loadSong('sea you and me'); // 播放音乐 '1.mp3'
+		playSong();
+
 		$('.hero').css('display','block'); //显示玩家
 		scene.style.backgroundImage = "url(./img/map/home.jpg), url(./img/black_background.jpg)";
 		scene.style.backgroundSize = "auto, cover"; // 根据需要调整大小
@@ -115,7 +118,7 @@ function loadmap(phase){
 			$('.hero').css('background-position-y','0'); // 将背景图片居中显示
 		}
 		
-		npc=[[240,475, 70, 'barman'], [524, 531, 40, 'student_01']]; 
+		npc=[[240,475, 70, 'barman'], [524, 531, 40, 'student_01'], [524, 216, 40, 'old_knight']]; 
 		object=[];
 		door=[[404,616,50,'street_from_home_to_bar']]; 
 
@@ -129,7 +132,11 @@ function loadmap(phase){
 		$('#npc2').css('left','524px');
 		$('#npc2').css('top','531px');
 
-		$('#npc3').css('display','none');
+		$('#npc3').css('display','block');
+		$('#npc3').css('background-image','url("./img/character/old_knight.png")');
+		$('#npc3').css('left','524px');
+		$('#npc3').css('top','216px');
+		
 	
 	}
 

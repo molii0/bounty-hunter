@@ -11,13 +11,16 @@ function dialog(man){
 	let picture=document.querySelector('.picture');
 	let title=document.querySelector('.title');
 	let texture=document.querySelector('.texture');
-	
+	let choice1=document.querySelector('#choice1');
+	let choice2=document.querySelector('#choice2');
+	let dialog_zone=document.querySelector('.dialog_zone');
+	man_now=man;
 
 	// 添加示例NPC对话逻辑
 	if(man == 'example'){
 
 		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
-		man_now='example';
+		// man_now='example';
 		picture.innerHTML='<img src="./img/avatar/jane.png">';
 		title.innerHTML='示例NPC';
 		switch(example){
@@ -41,8 +44,9 @@ function dialog(man){
 	}
 	if(man == 'init_dialog_at_home'){
 		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
-		man_now='init_dialog_at_home';
+		// man_now='init_dialog_at_home';
 		title.innerHTML='';
+		picture.innerHTML='';
 		switch(init_dialog_at_home){
 			case -1:{
 				//不应该触发对话
@@ -68,7 +72,7 @@ function dialog(man){
 	}
 	if(man == 'villager_01'){
 		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
-		man_now='villager_01';
+		// man_now='villager_01';
 		switch(villager_01){
 			case 0:{
 				picture.innerHTML='<img src="./img/avatar/jane.png">'; //for me _9_
@@ -96,7 +100,7 @@ function dialog(man){
 	}
 	else if (man == 'student_01'){
 		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
-		man_now='student_01';
+		// man_now='student_01';
 		switch(student_01){
 			case 0:{
 				picture.innerHTML='<img src="./img/avatar/jane.png">';
@@ -124,7 +128,7 @@ function dialog(man){
 	}
 	else if (man == 'barman') {
 		text.style.display='block'; 
-		man_now='barman';
+		// man_now='barman';
 		student_01 = 2;
 		switch(barman){
 			case 0:{
@@ -159,31 +163,124 @@ function dialog(man){
 			}
 		}
 	}
+
+	else if (man == 'old_knight'){
+		text.style.display='block'; 
+		// man_now='old_knight';
+		switch(old_knight){
+			case 0:{
+				picture.innerHTML='<img src="./img/avatar/jane.png">';
+				title.innerHTML='杰恩';
+				texture.innerHTML='（把地图展示给韦斯）你见过这个东西吗？';
+				old_knight++;
+				break;
+			}
+			case 1:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='（看了信件）哦！年轻人，你要找去纳安城的钥匙！';
+				old_knight++;
+				break;
+			}
+			case 2:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='老骑士';
+				texture.innerHTML='传说纳安城是最美好的乌托邦！';
+				old_knight++;
+			}
+			case 3:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='如果你答应让我与你同行的话，我将帮你拿到宝石钥匙！';
+				old_knight++;
+				break;
+			}
+			case 4:{ 
+				// 开始分岔  
+				// 这里应该不用做处理，即使再E，也会来到case4，只是重复设置这些元素而已，不会跳出（因为没++）
+				picture.innerHTML='';
+				title.innerHTML='';
+				texture.innerHTML='要与韦斯同行吗？（你的选择会影响到你的未来）';
+				dialog_zone.style.display='block';
+				choice1.innerHTML='同意';
+				choice2.innerHTML='拒绝';
+				// 这里不应该++，否则不点按钮，e一下就过去了
+				break;
+			}
+			//这里不是从4++继续的，而是一个跳变
+			case 5:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='那可真不幸，我喜欢广交朋友，现在地图是我的了';
+				old_knight++;
+				person='end';
+				break;
+			}
+			case 6:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='杰恩';
+				texture.innerHTML='（把地图展示给韦斯）你见过这个东西吗？';
+				old_knight++;
+				person='end';
+				break;
+			}
+
+		}
+	}
 }
-// function choice(num){
-// 	console.log(man_now);
-// 	$('.dialog_zone').css('display','none');
-// 	if(man_now=='judge'){
-// 			switch(num)
-// 			{
-// 				case 0:{
-// 					$('.picture').html('<img src="./img/avatar/hero.png">');
-// 					$('.title').html('安折');
-// 					$('.texture').html('要救人吗？');
-// 					judge=23;
-// 					break;
-// 				}
-// 				case 1:{
-// 					$('.picture').html('<img src="./img/avatar/hero.png">');
-// 					$('.title').html('安折');
-// 					$('.texture').html('你们要炸了外城吗？那里的人怎么办？');
-// 					judge=23;
-// 					break;
-// 				}
+
+// 点击按钮会触发对应的choice(0)或choice(1),在dialog要做的是：
+// 1.把问题写出来
+// 2.把按钮写上文本
+function choice(num){ 
+	console.log(man_now);
+	$('.dialog_zone').css('display','none');
+	let text=document.querySelector('.text');
+	let picture=document.querySelector('.picture');
+	let title=document.querySelector('.title');
+	let texture=document.querySelector('.texture');
+	if (man_now=='old_knight'){
+		switch(num){
+			case 0:{
+				picture.innerHTML=''; // 旁白
+				title.innerHTML='';
+				texture.innerHTML='你与韦斯一拍即合结伴同行，在韦斯的带领下来到德莱伯爵的密室，而你要找的宝石钥匙就在里面.';
+				old_knight=6;
+				break;
+			}
+			case 1:{
+				picture.innerHTML='<img src="./img/avatar/jane.png">';
+				title.innerHTML='杰恩';
+				texture.innerHTML='很抱歉，我喜欢独自完成委托';
+				// 这里也不应调用dialog，而是让玩家E一下，自然就进入新对话了
+				// 因为old_knight变化了，person没变，所以会回到骑士的case5
+				old_knight=5; 
+				break;
+			}
+		}
+	}
+}
+// if(man_now=='judge'){
+// 		switch(num)
+// 		{
+// 			case 0:{
+// 				$('.picture').html('<img src="./img/avatar/hero.png">');
+// 				$('.title').html('安折');
+// 				$('.texture').html('要救人吗？');
+// 				judge=23;
+// 				break;
 // 			}
-		
-// 		person='judge';
-// 	}
+// 			case 1:{
+// 				$('.picture').html('<img src="./img/avatar/hero.png">');
+// 				$('.title').html('安折');
+// 				$('.texture').html('你们要炸了外城吗？那里的人怎么办？');
+// 				judge=23;
+// 				break;
+// 			}
+// 		}
+	
+// 	person='judge';
+// }
 // 	else if(man_now=='drji')
 // 		{
 // 		if(drji==5)

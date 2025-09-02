@@ -176,7 +176,7 @@ prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
 
 // Song ends
-audio.addEventListener('ended', nextSong);
+audio.addEventListener('ended', playSong); //游戏里循环播放场景音乐
 
 // Time of song
 audio.addEventListener('timeupdate', DurTime);

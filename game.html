@@ -5,10 +5,12 @@
 	<meta charset="UTF-8">
 	<title>游戏页</title>
 	<link href="css/hero.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" href="./webfonts/iconfont.css">
 	<link href="css/text.css" type="text/css" rel="stylesheet">
 	<link href="css/reasoning.css" type="text/css" rel="stylesheet">
 	<link href="css/ending.css" type="text/css" rel="stylesheet">
 	<link href="css/manual.css" type="text/css" rel="stylesheet">
+	<link href="music-player/music-player.css" type="text/css" rel="stylesheet">
 	<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
 	<script language="javascript" src="js/reasoning.js"></script>
 	<style>
@@ -80,6 +82,22 @@
 <body style="background-image: url('./img/usbackground.jpg'); background-size: cover; background-position: center; background-repeat: repeat;">
 
 	<div class="window">
+		<div class="music-container" id="music-container">
+			<audio src="./music-player/music/summer pocket.mp3" id="audio"></audio>
+			<div class="navigation">
+				<button id="prev" class="action-btn">
+					<i class="iconfont icon-backward_fill"></i>
+				</button>
+				<button id="play" class="action-btn action-btn-big">
+					<i class="iconfont icon-play_fill"></i>
+				</button>
+				<button id="next" class="action-btn">
+					<i class="iconfont icon-play_forward_fill"></i>
+				</button>
+				<a id="currentMusic">CurrentMusic</a>
+			</div>
+		</div>
+		<div class="auto-play-music"></div>
 		<div id="coordHud" style="position:absolute; top:8px; left:8px; padding:4px 8px; background: rgba(0,0,0,0.6); color:#0f0; font: 12px/1 monospace; z-index: 99999; pointer-events:none;">X: -, Y: - | phase: -</div>
 		<!-- 提供“继续游戏”、“保存游戏”和“退出游戏”三个选项。
 		“继续游戏”按钮隐藏当前菜单。
@@ -280,6 +298,8 @@
         window.focus();
     });
     </script>
+	<script language="javascript" src="js/game_music.js"></script> 
+	<!-- 游戏内的音乐播放器，与主页不同 -->
 </body>
 
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>坐标提取器</title>
+    <link rel="stylesheet" href="coordinate_extractor.css">
+</head>
+<body>
+    <h1>地图坐标提取器</h1>
+    <p>上传地图图片，然后通过两次点击来定义一堵墙（水平或垂直）。</p>
+    <input type="file" id="imageInput" name="imageInput"/>
+    <div id="canvas-container">
+        <canvas id="canvas"></canvas>
+    </div>
+    <div id="controls">
+        <button id="undoButton">撤销</button>
+        <button id="copyButton">复制墙壁数组</button>
+        <button id="clearButton">清空所有墙壁</button>
+    </div>
+    <div id="coordinates">
+        <!-- Wall lists will be dynamically inserted here -->
+    </div>
+    <script src="coordinate_extractor.js"></script>
+</body>
+</html>
