@@ -230,17 +230,33 @@ function dialog(man){
 				break;
 			}
 			case 8:{
-				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
-				title.innerHTML='韦斯';
-				texture.innerHTML='你输了';
-				person='end';
+				picture.innerHTML='';
+				title.innerHTML='';
+				texture.innerHTML='你不敌韦斯，被他抢走地图.';
+				old_knight++;
+				break;
+			}
+			case 9:{
+				picture.innerHTML='';
+				title.innerHTML='';
+				texture.innerHTML='酒馆里的人都与韦斯是老朋友了，他们帮忙将你除去，没对这个地方产生任何影响.';
+				old_knight++;
+				break;
+			}
+			case 10:{
+				picture.innerHTML='';
+				title.innerHTML='';
+				texture.innerHTML='';
+				end(0);
 				break;
 			}
 			case 20:{
-				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
-				title.innerHTML='韦斯';
-				texture.innerHTML='还没做';
+				picture.innerHTML='';
+				title.innerHTML='';
+				texture.innerHTML='你与韦斯一拍即合结伴同行，在韦斯的带领下来到德莱伯爵的密室，而你要找的宝石钥匙就在里面.';
+				addachievement(1);
 				person='end';
+				// transform(mishi); 不知道他用什么变量名
 				break;
 			}
 

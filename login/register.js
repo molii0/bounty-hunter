@@ -8,9 +8,9 @@ function reg() {
     } else {
         //判断用户名是否已经存在
         console.log("检查用户名:", username);
-        console.log("localStorage中的用户:", localStorage.getItem("Sec-Sight-" + username));
+        console.log("localStorage中的用户:", localStorage.getItem("Hound_" + "CurrentPlayer" + username));
         
-        if (localStorage.getItem("Sec-Sight-" + username)) {
+        if (localStorage.getItem("Hound_" + "CurrentPlayer" + username)) {
             alert("用户名已存在，请选择其他用户名");
             document.getElementById('regUN').value = "";
             document.getElementById('regPW1').value = "";
@@ -20,9 +20,10 @@ function reg() {
         }
         else {
             //如果不存在，则将用户名和密码存到网页中
-            localStorage.setItem("Sec-Sight-" + username, password1);
+            localStorage.setItem("Hound_" + "CurrentPlayer" + username, password1);
+
             // 记录最新注册的用户信息，供登录页面自动填充
-            localStorage.setItem("Sec-Sight-last-registered", JSON.stringify({
+            localStorage.setItem("Hound_last-registered", JSON.stringify({
                 username: username,
                 password: password1
             }));

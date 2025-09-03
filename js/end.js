@@ -12,10 +12,14 @@ function end(id){
 				'background-repeat': 'no-repeat' // 防止背景图片重复
 			});
 			$('.background_board').fadeIn(1000);
-			$('.caption').html('程序员罢工了，主角趋势了');
+			$('.caption').html('达成结局：无人问津');
 			$('.caption').fadeIn(1000);
 		},2000);
-		setTimeout("$('.caption').fadeOut(500),$('.background_board').fadeOut(1000)",5000);	
+		setTimeout("$('.caption').fadeOut(500),$('.background_board').fadeOut(1000)",5000);
+		
+		setTimeout(function(){
+			window.location.href = './home/home.html';
+		},7000);
 	}
 }
 

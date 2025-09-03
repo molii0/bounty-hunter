@@ -25,7 +25,7 @@ let keys = {};
 document.addEventListener("keydown", e => {
   keys[e.key] = true;
 
-  if (e.key === " " && !player.attacking) {
+  if (e.key === "j" && !player.attacking) {
     player.attacking = true;
     player.attackFrame = 0;
   }
@@ -42,41 +42,70 @@ function checkCollision(a, b) {
          a.y < b.y + b.height && a.y + a.height > b.y;
 }
 
-// 绘制人物 & 攻击动画
-function drawEntity(entity, color) {
-  ctx.fillStyle = color;
-  ctx.fillRect(entity.x, entity.y, entity.width, entity.height);
+const playerImg = new Image();
+playerImg.src = "./assets/image/player.png";
 
+const enemyImg = new Image();
+enemyImg.src = "./assets/image/enemy.png";
+
+// 武器贴图
+const swordImgRight = new Image();
+swordImgRight.src = "./assets/image/sword_right.png";
+const swordImgLeft = new Image();
+swordImgLeft.src = "./assets/image/sword_left.png";
+
+// 绘制人物 & 攻击动画
+// 替换现有的drawEntity函数
+function drawEntity(entity, isPlayer) {
+  // 保存当前画布状态
+  ctx.save();
+  
+  // 根据角色朝向翻转图片
+  if (entity.facing === "left") {
+    ctx.scale(-1, 1);
+    ctx.drawImage(isPlayer ? playerImg : enemyImg, 
+                 -entity.x - entity.width, entity.y, 
+                 entity.width, entity.height);
+  } else {
+    ctx.drawImage(isPlayer ? playerImg : enemyImg, 
+                 entity.x, entity.y, 
+                 entity.width, entity.height);
+  }
+  
+  // 绘制攻击动画 - 使用武器贴图
   if (entity.attacking) {
-    ctx.fillStyle = "yellow";
-    let swordLength = 40;
-    let swordWidth = 12;
-    let swordOffset = Math.min(entity.attackFrame * 3, swordLength);
+    let swordLength = 60;
+    let swordWidth = 15;
+    let swordOffset = Math.min(entity.attackFrame * 5, swordLength);
 
     if (entity.facing === "right") {
-      ctx.fillRect(entity.x + entity.width, entity.y + 25, swordOffset, swordWidth);
-    } else {
-      ctx.fillRect(entity.x - swordOffset, entity.y + 25, swordOffset, swordWidth);
-    }
+      ctx.drawImage(swordImgRight, entity.x + entity.width, entity.y + 25, swordOffset, swordWidth);
+    } 
+   if (entity.facing === "left") {
+    ctx.drawImage(swordImgLeft, - (entity.x - swordOffset + entity.width), entity.y + 25, swordOffset, swordWidth);
+   }
 
     entity.attackFrame++;
 
     if (entity.attackFrame === 6) {
-      if (color === "blue" && checkCollision(entity, enemy)) {
+      if (isPlayer && checkCollision(entity, enemy)) {
         enemy.health = Math.max(0, enemy.health - 10);
         console.log("玩家击中敌人！敌人血量:", enemy.health);
       }
-      if (color === "red" && checkCollision(entity, player)) {
+      if (!isPlayer && checkCollision(entity, player)) {
         player.health = Math.max(0, player.health - 8);
         console.log("敌人击中玩家！玩家血量:", player.health);
       }
     }
 
-    if (entity.attackFrame > 20) {
+    if (entity.attackFrame > 15) {
       entity.attacking = false;
       entity.attackFrame = 0;
     }
   }
+  
+  // 恢复画布状态
+  ctx.restore();
 }
 
 // 更新玩家
@@ -155,8 +184,8 @@ function gameLoop() {
   updatePlayer();
   updateEnemy();
 
-  drawEntity(player, "blue");
-  drawEntity(enemy, "red");
+  drawEntity(player, true);
+  drawEntity(enemy, false);
 
   drawHealthBars();
 
@@ -174,9 +203,25 @@ function gameLoop() {
     if (window.parent) {
         window.parent.postMessage('win_game1', '*');
     }
+
   } else {
     requestAnimationFrame(gameLoop);
   }
 }
 
-backgroundImg.onload = () => gameLoop();
+// 替换现有的backgroundImg.onload
+let imagesLoaded = 0;
+const totalImages = 4; // 背景图 + 玩家图 + 敌人图 + 武器图
+
+function imageLoaded() {
+  imagesLoaded++;
+  if (imagesLoaded === totalImages) {
+    gameLoop();
+  }
+}
+
+backgroundImg.onload = imageLoaded;
+playerImg.onload = imageLoaded;
+enemyImg.onload = imageLoaded;
+swordImgRight.onload = imageLoaded;
+swordImgLeft.onload = imageLoaded;
