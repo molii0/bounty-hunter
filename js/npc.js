@@ -167,7 +167,7 @@ function dialog(man){
 
 	else if (man=='old_knight_gem'){
 		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
-		man_now='old_knight_gem';
+		//man_now='old_knight_gem';
 		switch(old_knight_gem){
 			case 0:{
 				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
@@ -192,7 +192,8 @@ function dialog(man){
 				person='end';
 				break;
 			}
-=======
+		}
+	}
 	else if (man == 'old_knight'){
 		text.style.display='block'; 
 		// man_now='old_knight';
@@ -285,7 +286,8 @@ function dialog(man){
 				texture.innerHTML='你与韦斯一拍即合结伴同行，在韦斯的带领下来到德莱伯爵的密室，而你要找的宝石钥匙就在里面.';
 				addachievement(1);
 				person='end';
-				// transform(mishi); 不知道他用什么变量名
+				text.style.display='none'
+				transform('gem_room');
 				break;
 			}
 

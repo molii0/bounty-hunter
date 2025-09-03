@@ -92,7 +92,7 @@ function loadmap(phase){
 		$('#npc3').css('display','none');
 
 		object = [];
-		door = [[190, 435, 40, 'home'], [715, 405, 40, 'bar'],[960,520,100,'gem_room']];
+		door = [[190, 435, 40, 'home'], [715, 405, 40, 'bar']];
 	}
 
 	else if(phase=='bar'){
@@ -159,7 +159,7 @@ function loadmap(phase){
 		
 		npc=[[550,525, 70,'old_knight_gem']]; 
 		object=[[480,200,80,'gem']];
-		door=[[400,620,155,'bar']]; 
+		door=[[400,620,155,'bar']];//方便测试修改，最终应该不能回去（？）
 
 		$('#npc1').css('display','block');
 		$('#npc1').css('background-image','url("./img/character/old_knight.png")');
