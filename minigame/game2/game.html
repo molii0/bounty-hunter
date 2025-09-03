@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迷宫探险游戏</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="game-title">迷宫探险</h1>
+        
+        <div class="game-panel">
+            <div class="maze-container">
+                <div id="maze" class="maze"></div>
+            </div>
+            
+            <div class="controls">
+                <div class="stats">
+                    <div class="stat">
+                        <span>步数:</span>
+                        <span id="steps" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span>时间:</span>
+                        <span id="timer" class="stat-value">00:00</span>
+                    </div>
+                    <div class="stat">
+                        <span>状态:</span>
+                        <span id="status" class="stat-value">探索中</span>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <button id="restart">重新开始</button>
+                    <button id="generate">生成新迷宫</button>
+                    <button id="solve">提示解法</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>操作说明</h2>
+            <ul>
+                <li>使用键盘 w a s d 移动角色</li>
+                <li>从绿色起点到达黄色终点获胜</li>
+                <li>按空格键可以显示通往终点的路径提示</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="message" class="message"></div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

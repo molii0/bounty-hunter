@@ -65,10 +65,10 @@ body {
 	font-family:楷体;
 }
 #aboutbutton:hover {
-  filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
-  color: #FFD57E; /* 文字变金色 */
-  transform: scale(1.05); /* 轻微放大 */
-  cursor: pointer;
+	filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
+	color: #FFD57E; /* 文字变金色 */
+	transform: scale(1.05); /* 轻微放大 */
+	cursor: pointer;
 }
 #backbutton{
 	background-color: #5c3a18;
@@ -88,10 +88,10 @@ body {
 	font-family:楷体;
 }
 #backbutton:hover{
-  filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
-  color: #FFD57E; /* 文字变金色 */
-  transform: scale(1.05); /* 轻微放大 */
-  cursor: pointer;
+	filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
+	color: #FFD57E; /* 文字变金色 */
+	transform: scale(1.05); /* 轻微放大 */
+	cursor: pointer;
 }
 .menuitem {
     display: block;

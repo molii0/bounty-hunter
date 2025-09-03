@@ -22,15 +22,17 @@ function log() {
         alert("请输入用户名和密码");
     } else {
         //判断用户名是否已经注册
-        if (localStorage.getItem("Sec-Sight-" + logUN)) {
+        if (localStorage.getItem("Hound_" + "CurrentPlayer" + logUN)) {
             //如果已经注册，获取用户密码
-            let password = localStorage["Sec-Sight-" + logUN];
+            let password = localStorage["Hound_" + "CurrentPlayer" + logUN];
             //判断用户输入的密码和注册的密码是否一致
             if (logPW === password) {
                 // ("登录成功！");
                 document.getElementById('logUN').value = "";
                 document.getElementById('logPW').value = "";
-                localStorage.setItem("Sec-Sight-current-username", logUN);
+
+                // 登录成功后，将当前用户名存储到 localStorage 中
+                localStorage.setItem("Hound_CurrentPlayer", logUN);
                 // 直接跳转到home页面
                 window.location.href = './home/home.html';
             } else {
@@ -45,7 +47,7 @@ function log() {
 
 // 自动填充最新注册的用户信息
 function autoFillLastRegistered() {
-    const lastRegistered = localStorage.getItem("Sec-Sight-last-registered");
+    const lastRegistered = localStorage.getItem("Hound_last-registered");
     if (lastRegistered) {
         try {
             const userInfo = JSON.parse(lastRegistered);
@@ -53,12 +55,12 @@ function autoFillLastRegistered() {
             document.getElementById('logPW').value = userInfo.password;
             
             // 填充完成后清除记录，避免影响后续使用
-            localStorage.removeItem("Sec-Sight-last-registered");
+            localStorage.removeItem("Hound_last-registered");
             
             console.log("自动填充用户信息:", userInfo.username);
         } catch (error) {
             console.error("解析最新注册用户信息失败:", error);
-            localStorage.removeItem("Sec-Sight-last-registered");
+            localStorage.removeItem("Hound_last-registered");
         }
     }
 }
