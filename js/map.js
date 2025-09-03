@@ -92,7 +92,7 @@ function loadmap(phase){
 		$('#npc3').css('display','none');
 
 		object = [];
-		door = [[190, 435, 40, 'home'], [715, 405, 40, 'bar']];
+		door = [[190, 435, 40, 'home'], [715, 405, 40, 'bar'],[960,520,100,'gem_room']];
 	}
 
 	else if(phase=='bar'){
@@ -137,6 +137,36 @@ function loadmap(phase){
 		$('#npc3').css('left','524px');
 		$('#npc3').css('top','216px');
 		
+	
+	}
+
+	else if(phase=='gem_room'){
+		$('.hero').css('display','block');
+		scene.style.backgroundImage = "url(./img/map/gem_room.jpg), url(./img/black_background.jpg)";
+		scene.style.backgroundSize = "auto, cover"; // 根据需要调整大小
+		scene.style.backgroundRepeat = "no-repeat, repeat"; // 防止图片重复
+		scene.style.backgroundPosition = "center, center"; // 将图片居中显示
+
+		wallx = [[402,521,65],[402,623,151],[488,521,65],[467,232,21]];
+
+		wally = [[402,521,102],[467,232,289],[553,521,102],[488,232,289]];
+
+		if (true){ 
+			$('.hero').css('left','480px');
+			$('.hero').css('top','620px');
+			$('.hero').css('background-position-y','0'); // 将背景图片居中显示
+		}
+		
+		npc=[[550,525, 70,'old_knight_gem']]; 
+		object=[[480,200,80,'gem']];
+		door=[[400,620,155,'bar']]; 
+
+		$('#npc1').css('display','block');
+		$('#npc1').css('background-image','url("./img/character/old_knight.png")');
+		$('#npc1').css('left','550px');
+		$('#npc1').css('top','525px'); 
+		$('#npc2').css('display','none');
+		$('#npc3').css('display','none');
 	
 	}
 
