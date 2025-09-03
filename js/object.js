@@ -37,4 +37,16 @@ function interact(object){
                 break; 
         }
     }
+
+    else if(object=='gem'){
+        text.style.display='block';
+        switch(gem){ 
+            default:
+                $('.picture').html(''); //这里用了登录的纸，因为我懒得找了
+                $('.title').html('');
+				$('.texture').html('接入小游戏'); 
+                obj='end';
+                break;
+        }
+    }
 }

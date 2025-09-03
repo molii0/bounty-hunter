@@ -48,6 +48,9 @@ var villager_01=0;
 var barman=0;
 var student_01=0;
 
+// gem_room
+var old_knight_gem=0;
+
 // 物品相关
 var paper_at_home=0;
-
+var gem=0;
