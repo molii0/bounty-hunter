@@ -47,6 +47,7 @@ var villager_01=0;
 // bar
 var barman=0;
 var student_01=0;
+var old_knight=0;
 
 // gem_room
 var old_knight_gem=0;

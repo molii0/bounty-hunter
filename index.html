@@ -52,7 +52,7 @@
 
     <div class="music-container" id="music-container">
         <!-- 111 -->
-        <audio src="./music-player/music/musicroom.mp3" id="audio"></audio>
+        <audio src="./music-player/music/summer pocket.mp3" id="audio"></audio>
 
         <div class="navigation">
             <button id="prev" class="action-btn">
@@ -72,28 +72,31 @@
 <script src="./music-player/music-player.js"></script>
 
 <script>
-// 音乐播放器控制函数
-function controlMusic(action) {
-    // 可以添加音乐控制逻辑
-    console.log('Music control: ' + action);
-}
+    window.addEventListener('message', function(event) {
+        // 检查消息的来源，确保是来自预期的子 iframe
+        // 在文件系统环境下，源通常是 'null'
+        // if (event.origin !== 'null' && event.origin !== 'file://') {
+        //     return; // 忽略来自未知源的消息
+        // }
 
-// 添加事件监听器，当点击音乐播放器时，通知游戏页面重置移动状态
-document.querySelector('.music-container').addEventListener('click', function() {
-  // 如果存在游戏页面的iframe，则通知游戏页面重置移动状态
-  try {
-    // 尝试获取游戏页面的window对象
-    var gameWindow = document.querySelector('iframe[src*="game.html"]');
-    if (gameWindow && gameWindow.contentWindow) {
-      // 调用游戏页面中的重置函数
-      gameWindow.contentWindow.resetMovement();
-    }
-  } catch (e) {
-    console.log('无法重置游戏移动状态:', e);
-  }
-});
-// 暴露给子页面使用
-window.controlMusic = controlMusic;
+        if (event.data === 'hideMusicPlayer') {
+            const musicContainer = document.getElementById('music-container');
+            if (musicContainer) {
+                musicContainer.style.display = 'none';
+                if (window.pauseSong) {
+                    window.pauseSong();
+                }
+            }
+        } else if (event.data === 'showMusicPlayer') {
+            const musicContainer = document.getElementById('music-container');
+            if (musicContainer) {
+                musicContainer.style.display = 'block';
+                if (window.playSong && window.loadSong) {
+                    window.loadSong('summer pocket');
+                    window.playSong();
+                }
+            }
+        }
+    });
 </script>
-
 </html>

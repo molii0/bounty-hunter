@@ -5,10 +5,12 @@
 	<meta charset="UTF-8">
 	<title>游戏页</title>
 	<link href="css/hero.css" type="text/css" rel="stylesheet">
+	<link rel="stylesheet" href="./webfonts/iconfont.css">
 	<link href="css/text.css" type="text/css" rel="stylesheet">
 	<link href="css/reasoning.css" type="text/css" rel="stylesheet">
 	<link href="css/ending.css" type="text/css" rel="stylesheet">
 	<link href="css/manual.css" type="text/css" rel="stylesheet">
+	<link href="music-player/music-player.css" type="text/css" rel="stylesheet">
 	<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
 	<script language="javascript" src="js/reasoning.js"></script>
 	<style>
@@ -80,6 +82,22 @@
 <body style="background-image: url('./img/usbackground.jpg'); background-size: cover; background-position: center; background-repeat: repeat;">
 
 	<div class="window">
+		<div class="music-container" id="music-container">
+			<audio src="./music-player/music/summer pocket.mp3" id="audio"></audio>
+			<div class="navigation">
+				<button id="prev" class="action-btn">
+					<i class="iconfont icon-backward_fill"></i>
+				</button>
+				<button id="play" class="action-btn action-btn-big">
+					<i class="iconfont icon-play_fill"></i>
+				</button>
+				<button id="next" class="action-btn">
+					<i class="iconfont icon-play_forward_fill"></i>
+				</button>
+				<a id="currentMusic">CurrentMusic</a>
+			</div>
+		</div>
+		<div class="auto-play-music"></div>
 		<div id="coordHud" style="position:absolute; top:8px; left:8px; padding:4px 8px; background: rgba(0,0,0,0.6); color:#0f0; font: 12px/1 monospace; z-index: 99999; pointer-events:none;">X: -, Y: - | phase: -</div>
 		<!-- 提供“继续游戏”、“保存游戏”和“退出游戏”三个选项。
 		“继续游戏”按钮隐藏当前菜单。
@@ -100,12 +118,12 @@
 		</div>
 		<!-- 嵌入了一个数独小游戏的iframe。
 		提供“退出”按钮，点击后隐藏数独游戏界面并重置相关样式。 -->
-		<div class="ylgy" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+		<div class="game1" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
 			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				<iframe src="./minigame/ylgy/ylgy.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-				<button onclick="$('.ylgy').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+				<iframe src="./minigame/game1/game.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<button onclick="$('.game1').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
 		<!-- <div class="llk">
@@ -265,7 +283,7 @@
 	</style>
 	<img id="myImage" src="" style="display: none;" />
 
-    <script src="js/interact.js"></script>
+
     
     <script>
     // 添加点击事件监听器，点击游戏页面时重新获取焦点
@@ -280,6 +298,23 @@
         window.focus();
     });
     </script>
+	<script language="javascript" src="js/game_music.js"></script> 
+	<script>
+		window.addEventListener('message', function(event) {
+			// 检查消息的来源，确保是来自预期的子 iframe
+			// 在文件系统环境下，源通常是 'null'
+			// if (event.origin !== 'null' && event.origin !== 'file://') {
+			//     return; // 忽略来自未知源的消息
+			// }
+
+			if (event.data === 'win_game1') {
+				old_knight = 7;
+			} else if (event.data === 'lose_game1') {
+				old_knight = 8;
+			}
+		});
+	</script>
+	<!-- 游戏内的音乐播放器，与主页不同 -->
 </body>
 
 </html>
