@@ -102,35 +102,7 @@ document.onkeydown=function(event){
 	
 	// E键交互逻辑
 	if(event.keyCode==69&&!option_now){//对应E
-		if(person!='none'){
-			if(person!='end') dialog(person);
-			else{
-				person='none';
-				text.style.display='none'; // 对话结束后关闭对话框
-				$('.dialog_zone').css('display','none'); 
-			}//在这里检测到end，再移除掉对话框，所以person是end的时候不能移动，再按一下变成none才能走
-		} else if (obj!='none'){ // 这里照搬npc对话的结束逻辑
-			if(obj!='end') interact(obj);
-			else{
-				obj='none';
-				text.style.display='none'; // 对话结束后关闭对话框
-				$('.dialog_zone').css('display','none'); 
-			}
-		}
-		else{ //注意，person，trans，obj不为none时，会阻止移动，这一切必须在按下E之后触发，不然路过就被卡住了
-			for(var i=0;i<object.length;i++){
-				if(hotzone(hero.offsetLeft,hero.offsetTop,object[i])) obj=object[i][3];
-			} // 检查是否靠近物品，如果靠近某个物品，就把这个物品的名字赋值给obj，这是原游戏没有的功能
-			for(var i=0;i<npc.length;i++){
-				if(hotzone(hero.offsetLeft,hero.offsetTop,npc[i])) person=npc[i][3]; 				
-			} // 检查是否靠近NPC，如果靠近某个npc，就把这个npc的名字赋值给person，调用dialog进入对话
-			for(var i=0;i<door.length;i++){
-				if(hotzone(hero.offsetLeft,hero.offsetTop,door[i])) trans=door[i][3];
-			} // 检查是否靠近门，如果靠近某个门，就把这个门的名字赋值给trans，调用transform换地图
-			if(person!='none') dialog(person);
-			else if(obj!='none') interact(obj);
-			else if(trans!='none') transform(trans);
-		}
+		check_all_interact();	
 	}
 	// else if (event.keyCode == 70 && !option_now) {//对应f
 	// 	if (map==0) {
@@ -345,4 +317,36 @@ document.onkeyup=function(event){
 		clearInterval(timing);
 		timing=null;
 	}
+}
+
+function check_all_interact(){
+	if(person!='none'){
+			if(person!='end') dialog(person);
+			else{
+				person='none';
+				text.style.display='none'; // 对话结束后关闭对话框
+				$('.choice_zone').css('display','none'); 
+			}//在这里检测到end，再移除掉对话框，所以person是end的时候不能移动，再按一下变成none才能走
+		} else if (obj!='none'){ // 这里照搬npc对话的结束逻辑
+			if(obj!='end') interact(obj);
+			else{
+				obj='none';
+				text.style.display='none'; // 对话结束后关闭对话框
+				$('.choice_zone').css('display','none'); 
+			}
+		}
+		else{ //注意，person，trans，obj不为none时，会阻止移动，这一切必须在按下E之后触发，不然路过就被卡住了
+			for(var i=0;i<object.length;i++){
+				if(hotzone(hero.offsetLeft,hero.offsetTop,object[i])) obj=object[i][3];
+			} // 检查是否靠近物品，如果靠近某个物品，就把这个物品的名字赋值给obj，这是原游戏没有的功能
+			for(var i=0;i<npc.length;i++){
+				if(hotzone(hero.offsetLeft,hero.offsetTop,npc[i])) person=npc[i][3]; 				
+			} // 检查是否靠近NPC，如果靠近某个npc，就把这个npc的名字赋值给person，调用dialog进入对话
+			for(var i=0;i<door.length;i++){
+				if(hotzone(hero.offsetLeft,hero.offsetTop,door[i])) trans=door[i][3];
+			} // 检查是否靠近门，如果靠近某个门，就把这个门的名字赋值给trans，调用transform换地图
+			if(person!='none') dialog(person);
+			else if(obj!='none') interact(obj);
+			else if(trans!='none') transform(trans);
+		}
 }

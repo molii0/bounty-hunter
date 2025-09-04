@@ -2,6 +2,7 @@ var loadnum=Number(localStorage.getItem('Hound_'+usr+'_loadnum'));
 if(loadnum==-1){
     $('.hero').css('display','none');
     $('.manual').fadeIn(1000);
+
     setTimeout("$('.manual').fadeOut(1000)",5000);
     setTimeout("cg(0)",6000); //
     

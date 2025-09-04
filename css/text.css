@@ -20,6 +20,13 @@
 	left:200px;
 	top:0;
 }
+.text .dialog_button{
+	width:1000px;
+	height:150px;
+	position:absolute;
+	left:200px;
+	top:0;
+}
 .text .title{
 	position:absolute;
 	width:500px;
@@ -120,7 +127,7 @@
 	position:absolute;
 	top:30px;
 }
-.dialog_zone{
+.choice_zone{
 	width:1000px;
 	height:650px;
 	position:absolute;
@@ -129,7 +136,7 @@
 	background-color:rgba(0,0,0,0.8);
 	display:none;
 }
-.dialog_zone button{
+.choice_zone button{
 	height:50px;
 	width:550px;
 	margin-left:225px;
@@ -140,7 +147,7 @@
 	transition:500ms;
 	color:white;
 }
-.dialog_zone button:hover{
+.choice_zone button:hover{
 	border-color:white;
 	background-color:white;
 	color:black;

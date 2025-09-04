@@ -3,7 +3,7 @@
 function addachievement(id){
 	if(id==0) $('#achieve').html('test');
 	else if(id==1){
-		$('#achieve').html('诚信善意');
+		$('#achieve').html('化敌为友');
 	}
 	else if(id==2){
 		$('#achieve').html('厨房小能手');
