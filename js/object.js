@@ -42,9 +42,10 @@ function interact(object){
         text.style.display='block';
         switch(gem){ 
             default:
-                $('.picture').html(''); //这里用了登录的纸，因为我懒得找了
+                $('.picture').html(''); 
                 $('.title').html('');
-				$('.texture').html('接入小游戏'); 
+				$('.texture').html('(拿到宝石后，你们从密室逃脱）');
+
                 obj='end';
                 break;
         }

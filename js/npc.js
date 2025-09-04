@@ -13,7 +13,7 @@ function dialog(man){
 	let texture=document.querySelector('.texture');
 	let choice1=document.querySelector('#choice1');
 	let choice2=document.querySelector('#choice2');
-	let dialog_zone=document.querySelector('.dialog_zone');
+	let choice_zone=document.querySelector('.choice_zone');
 	man_now=man;
 
 	// 添加示例NPC对话逻辑
@@ -163,36 +163,6 @@ function dialog(man){
 			}
 		}
 	}
-
-
-	else if (man=='old_knight_gem'){
-		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
-		man_now='old_knight_gem';
-		switch(old_knight_gem){
-			case 0:{
-				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
-				title.innerHTML='韦斯';
-				texture.innerHTML='嘿杰恩，看到那里的宝石了吗？那就是你要找的钥匙，去拿吧。';
-				old_knight_gem++;
-				person='end';
-				break;
-			}
-			case 1:{
-				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
-				title.innerHTML='韦斯';
-				texture.innerHTML='你去拿宝石吧，我在这儿替你守着';
-				old_knight_gem++;
-				person='end';
-				break;
-			}
-			default:{ 
-				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
-				title.innerHTML='韦斯';
-				texture.innerHTML='哦杰恩，需要思考的事我没法帮你，但我会替你守好门的';
-				person='end';
-				break;
-			}
-=======
 	else if (man == 'old_knight'){
 		text.style.display='block'; 
 		// man_now='old_knight';
@@ -230,7 +200,7 @@ function dialog(man){
 				picture.innerHTML='';
 				title.innerHTML='';
 				texture.innerHTML='要与韦斯同行吗？（你的选择会影响到你的未来）';
-				dialog_zone.style.display='block';
+				choice_zone.style.display='block';
 				choice1.innerHTML='同意';
 				choice2.innerHTML='拒绝';
 				// 这里不应该++，否则不点按钮，e一下就过去了
@@ -280,16 +250,41 @@ function dialog(man){
 				break;
 			}
 			case 20:{
-				picture.innerHTML='';
-				title.innerHTML='';
-				texture.innerHTML='你与韦斯一拍即合结伴同行，在韦斯的带领下来到德莱伯爵的密室，而你要找的宝石钥匙就在里面.';
-				addachievement(1);
-				person='end';
-				// transform(mishi); 不知道他用什么变量名
+				text.style.display='none'; // 对话结束后关闭对话框
+				choice_zone.style.display='none';
+				person = 'none';
+				transform('gem_room');
 				break;
 			}
-
-
+		}
+	}
+	else if (man=='old_knight_gem'){
+		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
+		man_now='old_knight_gem';
+		switch(old_knight_gem){
+			case 0:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='嘿杰恩，看到那里的宝石了吗？那就是你要找的钥匙，去拿吧。';
+				old_knight_gem++;
+				person='end';
+				break;
+			}
+			case 1:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='你去拿宝石吧，我在这儿替你守着';
+				old_knight_gem++;
+				person='end';
+				break;
+			}
+			default:{ 
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='哦杰恩，需要思考的事我没法帮你，但我会替你守好门的';
+				person='end';
+				break;
+			}
 		}
 	}
 }
@@ -299,7 +294,7 @@ function dialog(man){
 // 2.把按钮写上文本
 function choice(num){ 
 	console.log(man_now);
-	$('.dialog_zone').css('display','none');
+	$('.choice_zone').css('display','none');
 	let text=document.querySelector('.text');
 	let picture=document.querySelector('.picture');
 	let title=document.querySelector('.title');
@@ -311,6 +306,7 @@ function choice(num){
 				title.innerHTML='';
 				texture.innerHTML='你与韦斯一拍即合结伴同行，在韦斯的带领下来到德莱伯爵的密室，而你要找的宝石钥匙就在里面.';
 				old_knight=20;
+				addachievement(1);
 				break;
 			}
 			case 1:{
@@ -324,6 +320,7 @@ function choice(num){
 			}
 		}
 	}
+	
 }
 // if(man_now=='judge'){
 // 		switch(num)
@@ -424,7 +421,7 @@ function choice(num){
 // 			}
 // 	}
 // 	else if(man_now=='boliqiong'){
-// 		$('.dialog_zone').css('display','none');
+// 		$('.choice_zone').css('display','none');
 // 		if(boliqiong==5){
 // 			switch(num)
 // 			{

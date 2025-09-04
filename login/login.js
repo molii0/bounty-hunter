@@ -4,15 +4,6 @@ window.onload = function () {
     autoFillLastRegistered(); // 页面加载时尝试自动填充
 };
 
-// 添加表单切换函数
-function switchToLogin() {
-    document.getElementById('login').checked = true;
-}
-
-function switchToSignup() {
-    document.getElementById('signup').checked = true;
-}
-
 function log() {
     let logUN = document.getElementById('logUN').value;
     let logPW = document.getElementById('logPW').value;

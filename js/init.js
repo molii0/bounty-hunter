@@ -10,6 +10,10 @@ var wally=[];
 var object=[];
 var npc=[];
 var obj='none',person='none',trans='none'; 
+var dialog_button=document.querySelector('.dialog_button');
+dialog_button.addEventListener('click', function(){
+	check_all_interact();
+});
 
 // 背包系统
 var backpack=new Array(50).fill(0);

@@ -108,7 +108,7 @@
 			<ul type="none">
 				<li><button onclick="option_now=0;$('.option').css('display','none')">继续游戏</button></li>
 				<li><button onclick="click_save()">保存游戏</button></li>
-				<li><button onclick="parent.location.href='./index.html'">退出游戏</button></li>
+				<li><button onclick="parent.location.href='./home/home.html'">退出游戏</button></li>
 			</ul>
 		</div>
 		<div class="achievement">
@@ -126,59 +126,25 @@
 				<button onclick="$('.game1').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
-		<!-- <div class="llk">
-			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
-		</div> -->
-		<!-- <div class="llk" style="display: none;">
-			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
-		</div> -->
-		<!-- <div class="llk" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
-			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
-		</div> -->
-		<!-- <div class="llk" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
-			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: -1; pointer-events: none;"></div>
-			<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-			<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')">退出</button>
-		</div> -->
 
-		<div class="llk" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+		<div class="game2" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
 			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
 				<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-				<button onclick="$('.llk').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+				<button onclick="$('.game2').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
 		
-		<div class="battle1" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+		<div class="game3" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
 			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
 				<iframe src="./minigame/battle/battle1.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-				<button onclick="$('.battle1').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
+				<button onclick="$('.game3').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
 
-		<div class="battle2" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
-
-			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
-			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				<iframe src="./minigame/battle/battle2.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-				<button onclick="$('.battle2').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
-			</div>
-		</div>
-		
-		<div class="battle3" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
-
-			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
-			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				<iframe src="./minigame/battle/battle3.html" style="width:100%; height:90%; border: 0cm;"></iframe>
-				<button onclick="$('.battle3').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
-			</div>
-		</div>
 
 		
 
@@ -191,6 +157,7 @@
 				<!-- <p>X,Z:在线索板中切换页面。进入推理页面后按X即可查看背包。</p>  -->
 			</div>
 		</div>
+		<button id="skipCgButton" style="position: absolute; top: 10px; right: 10px; z-index: 1000000; background-color: rgba(0,0,0,0.5); color: white; padding: 10px 20px; cursor: pointer; display: none;">跳过CG</button>
 		<!-- 显示游戏角色，设置了初始位置 -->
 		<div class="hero" style="left:200px;top:200px;"></div>
 		<!-- 显示游戏中的NPC角色。 -->
@@ -204,7 +171,9 @@
 				<div class="title"></div>
 				<div class="texture"></div>
 			</div>
+			<div class="dialog_button"></div>
 		</div>
+		
 		<!-- 提供一个输入框和确认按钮，用于玩家输入密码或进行其他交互操作。 -->
 		<div class="interact_zone">
 			<input type="text" id="code" placeholder="在此处输入密码"><br>
@@ -219,10 +188,11 @@
 			</div>
 		</div>
 		<!-- 提供三个按钮，用于玩家进行对话选择。 -->
-		<div class="dialog_zone">
+		<div class="choice_zone">
 			<button id="choice1" onclick="choice(0)" style="margin-top:70px"></button><br>
 			<button id="choice2" onclick="choice(1)" style="margin-top:30px"></button><br>
 		</div>
+		
 		<!-- 用于显示游戏中的其他信息。 -->
 		<div class="display"></div>
 		<!-- 用于显示游戏中的提示信息。 -->

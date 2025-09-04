@@ -10,8 +10,8 @@ function openabout(){
 }
 function showachieve(){
     if('Hound_'+usr+'_achievement1' in localStorage){
-        $('#achievename1').html('尚未完成');
-        $('#achievedetail1').html('没想好');
+        $('#achievename1').html('化敌为友');
+        $('#achievedetail1').html('与一句话不合就拼命的老骑士成为了朋友');
         $('#picture1').attr('src','不知道');
     }
 }
