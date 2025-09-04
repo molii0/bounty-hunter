@@ -131,7 +131,7 @@
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
 			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<iframe src="./minigame/game2/game.html" style="width:100%; height:90%; border: 0cm;"></iframe>
 				<button onclick="$('.game2').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
@@ -140,7 +140,7 @@
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
 			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				<iframe src="./minigame/battle/battle1.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<iframe src="./minigame/game3/game.html" style="width:100%; height:90%; border: 0cm;"></iframe>
 				<button onclick="$('.game3').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
@@ -227,7 +227,7 @@
 
 	<!-- 绘制墙用的 -->
 	<!-- <canvas id="mapCanvas" width="1000" height="800"></canvas> -->
-
+	<script language="javascript" src="js/game_music.js"></script> 
 	<script language="javascript" src="js/archive.js"></script>
 	<script language="javascript" src="js/patch.js"></script>
 	<script language="javascript" src="js/init.js"></script>
@@ -268,7 +268,7 @@
         window.focus();
     });
     </script>
-	<script language="javascript" src="js/game_music.js"></script> 
+	
 	<script>
 		window.addEventListener('message', function(event) {
 			// 检查消息的来源，确保是来自预期的子 iframe

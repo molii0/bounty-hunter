@@ -162,10 +162,10 @@
 	border-radius:10px;
 	left:50%;
 	transform:translate(-50%,0);
-	margin-top:-30px;
+	margin-top:30px;
 	color:white;
 	display:none;
-	z-index:120001;
+	z-index:1200000;
 	position:absolute;
 }
 .sudoku{

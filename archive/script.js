@@ -25,26 +25,22 @@ function loadarchive(loadnum){
         archive_hint('此存档为空！');
     }
 }
+
 function getscene(archive_num){
     var now_phase=localStorage.getItem('Hound_'+usr+'_'+archive_num+'_now_phase');
     var scenename;
-    if(now_phase=='shenyuan')
-        scenename='深渊';
-    else if(now_phase=='dengta')
-        scenename='灯塔';
-    else if(now_phase=='guangchang')
-        scenename='广场';
-    else if(now_phase=='neicheng')
-        scenename='内城';
-    else if(now_phase=='home')
+    if(now_phase=='home')
         scenename='家';
-    else if(now_phase=='yidianyuan')
-        scenename='伊甸园';
-    else if(now_phase=='gaodiyanjiusuo')
-        scenename='高地研究所';
+    else if(now_phase=='street_from_home_to_bar')
+        scenename='街道';
+    else if(now_phase=='bar')
+        scenename='酒馆';
+    else if(now_phase=='gem_room')
+        scenename='密室';
    
     return scenename;
 }
+
 function showtime(){
     if('Hound_'+usr+'_time1' in localStorage){
         $('#time1').html(localStorage.getItem('Hound_'+usr+'_time1'));
