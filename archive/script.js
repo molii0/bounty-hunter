@@ -19,6 +19,7 @@ function loadarchive(loadnum){
     var archive_pointer=Number(localStorage.getItem('Hound_'+usr+'_archive_pointer'));
     if(loadnum<archive_pointer){
         localStorage.setItem('Hound_'+usr+'_loadnum',loadnum);
+        window.parent.postMessage('hideMusicPlayer', '*');
         window.open("../game.html","_self");
     }
     else{
@@ -27,7 +28,7 @@ function loadarchive(loadnum){
 }
 
 function getscene(archive_num){
-    var now_phase=localStorage.getItem('Hound_'+usr+'_'+archive_num+'_now_phase');
+    var now_phase=localStorage.getItem('Hound_'+usr+'_'+archive_num+'now_phase');
     var scenename;
     if(now_phase=='home')
         scenename='家';

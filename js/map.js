@@ -14,8 +14,7 @@ function loadmap(phase){
 	// 并初始化 wallx、wally、object 和 npc 数组，这些数组分别定义了墙壁、物体和 NPC 的位置和属性。
 	//下面的逻辑类似
 	if(phase=='home'){
-		loadSong('sea you and me'); // 播放音乐 '1.mp3'
-		playSong();
+		
 
 		$('.hero').css('display','block'); //显示玩家
 		scene.style.backgroundImage = "url(./img/map/home.jpg), url(./img/black_background.jpg)";
@@ -92,7 +91,8 @@ function loadmap(phase){
 		$('#npc3').css('display','none');
 
 		object = [];
-		door = [[190, 435, 40, 'home'], [715, 405, 40, 'bar'],[960,520,100,'gem_room']];
+		// door = [[190, 435, 40, 'home'], [715, 405, 40, 'bar'],[960,520,100,'gem_room']];
+		door = [[190, 435, 40, 'home'], [715, 405, 40, 'bar']]
 	}
 
 	else if(phase=='bar'){
@@ -159,7 +159,8 @@ function loadmap(phase){
 		
 		npc=[[550,525, 70,'old_knight_gem']]; 
 		object=[[480,200,80,'gem']];
-		door=[[400,620,155,'bar']]; 
+		// door=[[400,620,155,'bar']]; 
+		door=[];
 
 		$('#npc1').css('display','block');
 		$('#npc1').css('background-image','url("./img/character/old_knight.png")');

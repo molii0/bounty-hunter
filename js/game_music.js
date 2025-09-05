@@ -7,7 +7,7 @@ const audio = document.getElementById('audio');
 console.log(autoPlayBtn);
 
 // Song titles
-const songs = ['gate of steiner', 'summer pocket', 'sea you and me','1', '2', '3', '4']; //_3_ bgm
+const songs = ['home and bar.mp3','gate of steiner.mp3', 'summer pocket.mp3', 'sea you and me.mp3','game1.mp3', 'OP.mp3', 'game3.mp3', ]; //_3_ bgm
 
 // Keep track of song
 let songIndex = 0;
@@ -17,7 +17,7 @@ loadSong(songs[songIndex]);
 
 // Update song details
 function loadSong(song) {
-	audio.src = "./music-player/" + `music/${song}.mp3`;
+	audio.src = "./music-player/" + `music/${song}`;
 	
 	// 更新显示的当前音乐名称
 	const currentMusicElement = document.querySelector('#currentMusic');
@@ -158,18 +158,18 @@ playBtn.addEventListener('click', () => {
 	}
 });
 
-//auto-play
-autoPlayBtn.addEventListener('click', () => {
-	const isPlaying = musicContainer.classList.contains('play');
+// //auto-play
+// autoPlayBtn.addEventListener('click', () => {
+// 	const isPlaying = musicContainer.classList.contains('play');
 
-	if (isPlaying) {
-		pauseSong();
-	} else {
-		playSong();
-	}
+// 	if (isPlaying) {
+// 		pauseSong();
+// 	} else {
+// 		playSong();
+// 	}
 
-	autoPlayBtn.remove();
-});
+// 	autoPlayBtn.remove();
+// });
 
 // Change song
 prevBtn.addEventListener('click', prevSong);

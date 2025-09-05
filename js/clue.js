@@ -6,7 +6,7 @@ function addachievement(id){
 		$('#achieve').html('化敌为友');
 	}
 	else if(id==2){
-		$('#achieve').html('厨房小能手');
+		$('#achieve').html('武功过人');
 	}
 	
 	$('.achievement').css('animation-name','achievement');

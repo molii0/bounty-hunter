@@ -24,8 +24,8 @@ function about(){
 function logoutToIndex(){
     // 直接跳转到index.html
     // 向父窗口发送消息，显示音乐播放器
-    if (window.parent) {
-        window.parent.postMessage('showMusicPlayer', '*');
-    }
+    // if (window.parent) {
+    //     window.parent.postMessage('showMusicPlayer', '*');
+    // }
     window.location.href = '../login.html';
 }

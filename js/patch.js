@@ -90,6 +90,7 @@ function cg(id){
     });
 	if(id==-1){ //示例cg，不实际播放
 		// 第一阶段：初始化显示状态
+		
 		$('.background_board').css('display','none'); // 背景板隐藏
 		$('.caption').css('display','none'); // 字幕隐藏
 		$('.curtain').css('display','block'); // 幕布显示
@@ -135,6 +136,8 @@ function cg(id){
 	
 	else if(id==0) {//开场cg
 		// 第一阶段：初始化显示状态
+		loadSong('gate of steiner.mp3');
+		playSong();
 		$('.background_board').css('display','none'); // 背景板隐藏
 		$('.caption').css('display','none'); // 字幕隐藏
 		$('.curtain').css('display','block'); // 幕布显示

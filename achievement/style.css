@@ -38,7 +38,7 @@ body {
 	border: none;
 	font-size:25px;
 	font-weight:300;
-	font-family: 楷体;
+	font-family: 'Times New Roman', Times, serif;
 }
 #archivebutton:hover{
   filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
@@ -62,7 +62,7 @@ body {
 	border: none;
 	font-size:25px;
 	font-weight:300;
-	font-family:楷体;
+	font-family:'Times New Roman', Times, serif;
 }
 #aboutbutton:hover {
 	filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
@@ -85,7 +85,7 @@ body {
 	border: none;
 	font-size:25px;
 	font-weight:300;
-	font-family:楷体;
+	font-family:'Times New Roman', Times, serif;
 }
 #backbutton:hover{
 	filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
