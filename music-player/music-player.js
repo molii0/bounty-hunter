@@ -7,7 +7,7 @@ const audio = document.getElementById('audio');
 console.log(autoPlayBtn);
 
 // Song titles
-const songs = ['OP.ogg', 'gate of steiner.mp3', 'summer pocket.mp3', 'sea you and me.mp3','1.mp3', '2.mp3', '3.mp3', '4.mp3']; //_3_ bgm
+const songs = ['OP.mp3', 'summer pocket.mp3','gate of steiner.mp3',  'sea you and me.mp3','home and bar.mp3','game1.mp3',  'game3.mp3', ]; //_3_ bgm
 
 // Keep track of song
 let songIndex = 0;

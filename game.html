@@ -8,11 +8,9 @@
 	<link rel="stylesheet" href="./webfonts/iconfont.css">
 	<link href="css/text.css" type="text/css" rel="stylesheet">
 	<link href="css/reasoning.css" type="text/css" rel="stylesheet">
-	<link href="css/ending.css" type="text/css" rel="stylesheet">
 	<link href="css/manual.css" type="text/css" rel="stylesheet">
 	<link href="music-player/music-player.css" type="text/css" rel="stylesheet">
 	<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
-	<script language="javascript" src="js/reasoning.js"></script>
 	<style>
 		*{
 			margin:0;
@@ -35,15 +33,6 @@
 			background-size: 1000px 800px;
 			overflow:hidden;
 		}
-		/* 绘制墙用的 */
-		/* canvas {
-        border: 1px solid black;
-        position: absolute; 
-        z-index: 1000; 
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    } */
 	</style>
 	
 	<!-- 游戏进度保存 -->
@@ -97,8 +86,8 @@
 				<a id="currentMusic">CurrentMusic</a>
 			</div>
 		</div>
-		<div class="auto-play-music"></div>
-		<div id="coordHud" style="position:absolute; top:8px; left:8px; padding:4px 8px; background: rgba(0,0,0,0.6); color:#0f0; font: 12px/1 monospace; z-index: 99999; pointer-events:none;">X: -, Y: - | phase: -</div>
+		<!-- <div class="auto-play-music"></div> -->
+		<!-- <div id="coordHud" style="position:absolute; top:8px; left:8px; padding:4px 8px; background: rgba(0,0,0,0.6); color:#0f0; font: 12px/1 monospace; z-index: 99999; pointer-events:none;">X: -, Y: - | phase: -</div> -->
 		<!-- 提供“继续游戏”、“保存游戏”和“退出游戏”三个选项。
 		“继续游戏”按钮隐藏当前菜单。
 		“保存游戏”按钮调用 click_save() 函数。
@@ -108,7 +97,7 @@
 			<ul type="none">
 				<li><button onclick="option_now=0;$('.option').css('display','none')">继续游戏</button></li>
 				<li><button onclick="click_save()">保存游戏</button></li>
-				<li><button onclick="parent.location.href='./home/home.html'">退出游戏</button></li>
+				<li><button onclick="window.parent.postMessage('showMusicPlayer', '*');window.location.href = './home/home.html';">退出游戏</button></li>
 			</ul>
 		</div>
 		<div class="achievement">
@@ -116,8 +105,8 @@
 			<p>获得成就</p>
 			<div id="achieve">哈哈哈哈哈</div>
 		</div>
-		<!-- 嵌入了一个数独小游戏的iframe。
-		提供“退出”按钮，点击后隐藏数独游戏界面并重置相关样式。 -->
+		<!-- 嵌入了小游戏的iframe。
+		提供“退出”按钮，点击后隐藏小游戏界面并重置相关样式。 -->
 		<div class="game1" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
@@ -131,7 +120,7 @@
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
 			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				<iframe src="./minigame/llk/llk.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<iframe src="./minigame/game2/game.html" style="width:100%; height:90%; border: 0cm;"></iframe>
 				<button onclick="$('.game2').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
@@ -140,21 +129,16 @@
 
 			<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: -1; pointer-events: none;"></div>
 			<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-				<iframe src="./minigame/battle/battle1.html" style="width:100%; height:90%; border: 0cm;"></iframe>
+				<iframe src="./minigame/game3/game.html" style="width:100%; height:90%; border: 0cm;"></iframe>
 				<button onclick="$('.game3').css('display','none'),obj='none',$('.container').css('margin-top','0'),$('.container').css('margin-left','0')" style="font-size: 2em; padding: 10px 20px;">退出</button>
 			</div>
 		</div>
-
-
-		
 
 		<!-- 显示游戏操作指南，包括人物移动、物品交互、NPC对话等操作说明。 -->
 		<div class="manual">
 			<div style="margin-top:150px">
 				<p>W,A,S,D:人物移动</p>
 				<p>E:与NPC对话/进入下一个场景</p>
-				 <!-- <p>F:打开道路指引</p> -->
-				<!-- <p>X,Z:在线索板中切换页面。进入推理页面后按X即可查看背包。</p>  -->
 			</div>
 		</div>
 		<button id="skipCgButton" style="position: absolute; top: 10px; right: 10px; z-index: 1000000; background-color: rgba(0,0,0,0.5); color: white; padding: 10px 20px; cursor: pointer; display: none;">跳过CG</button>
@@ -174,20 +158,7 @@
 			<div class="dialog_button"></div>
 		</div>
 		
-		<!-- 提供一个输入框和确认按钮，用于玩家输入密码或进行其他交互操作。 -->
-		<div class="interact_zone">
-			<input type="text" id="code" placeholder="在此处输入密码"><br>
-			<button onclick="codecheck()">确认</button>
-		</div>
-		<!-- 提供“是”和“否”两个按钮，用于玩家进行选择 -->
-		<div class="select_zone">
-			<p class="item"></p>
-			<div class="selection">
-				<button onclick="codecheck(1)">是</button>
-				<button onclick="codecheck(0)">否</button>
-			</div>
-		</div>
-		<!-- 提供三个按钮，用于玩家进行对话选择。 -->
+		<!-- 提供两个个按钮，用于玩家进行对话选择。 -->
 		<div class="choice_zone">
 			<button id="choice1" onclick="choice(0)" style="margin-top:70px"></button><br>
 			<button id="choice2" onclick="choice(1)" style="margin-top:30px"></button><br>
@@ -198,36 +169,15 @@
 		<!-- 用于显示游戏中的提示信息。 -->
 		<div class="hint"></div>
 
-
-
-				<!-- 幕布 (<div class="curtain">)用于显示游戏中的背景和字幕。 -->
+		<!-- 幕布 (<div class="curtain">)用于显示游戏中的背景和字幕。 -->
 		<div class="curtain">
 			<div class="background_board"></div>
 			<div class="caption"></div>
 		</div>
-		<!-- 显示游戏结局，包括结局名称、图片和介绍，以及“回到主菜单”按钮。 -->
-		<div class="ending">
-			<div class="content">
-				<div id="session1">
-					<div class="startline">达成结局</div>
-					<div class="division"></div>
-					<div class="ending_name"></div>
-				</div>
-				<div id="session2">
-					<div class="ending_picture" align="center"></div>
-					<div class="ending_introduce"></div>
-				</div>
-				<div id="session3">
-					<div class="thanks">感谢游玩</div>
-					<button onclick="window.location.href='./login.html'">回到主菜单</button>
-				</div>
-			</div>
-		</div>
+		
 	</div>
 
-	<!-- 绘制墙用的 -->
-	<!-- <canvas id="mapCanvas" width="1000" height="800"></canvas> -->
-
+	<script language="javascript" src="js/game_music.js"></script> 
 	<script language="javascript" src="js/archive.js"></script>
 	<script language="javascript" src="js/patch.js"></script>
 	<script language="javascript" src="js/init.js"></script>
@@ -235,7 +185,6 @@
 	<script language="javascript" src="js/npc.js"></script>	
 	<script language="javascript" src="js/hurdle.js"></script>
 	<script language="javascript" src="js/map.js"></script>
-	<script language="javascript" src="js/decrypt.js"></script>
 	<script language="javascript" src="js/interact.js"></script>
 	<script language="javascript" src="js/end.js"></script>
 	<script language="javascript" src="js/startgame.js"></script>
@@ -253,8 +202,6 @@
 	</style>
 	<img id="myImage" src="" style="display: none;" />
 
-
-    
     <script>
     // 添加点击事件监听器，点击游戏页面时重新获取焦点
     document.addEventListener('click', function() {
@@ -268,7 +215,7 @@
         window.focus();
     });
     </script>
-	<script language="javascript" src="js/game_music.js"></script> 
+	
 	<script>
 		window.addEventListener('message', function(event) {
 			// 检查消息的来源，确保是来自预期的子 iframe

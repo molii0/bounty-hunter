@@ -1,4 +1,11 @@
 .text{
+	@import url('https://fonts.googleapis.com/css2?family=Source+Han+Serif+CN:wght@400;700&family=ZCOOL+QingKe+HuangYou&family=Long+Cang&display=swap');
+}
+body {
+    font-family: 'Source Han Serif CN', serif;
+}
+
+.text{
 	width:1000px;
 	height:150px;
 	position:absolute;
@@ -34,6 +41,7 @@
 	margin-top:10px;
 	font-size:20px;
 	color: white;
+	font-family: 楷体;
 }
 .text .texture{
 	position:absolute;
@@ -115,6 +123,7 @@
 	background-color:transparent;
 	color:black;
 	margin-left:100px;
+	font-family: 楷体;
 }
 .select_zone button:hover{
 	background-color:white;
@@ -162,10 +171,11 @@
 	border-radius:10px;
 	left:50%;
 	transform:translate(-50%,0);
-	margin-top:-30px;
+	margin-top:30px;
 	color:white;
 	display:none;
-	z-index:120001;
+	font-family: 'Source Han Serif CN', serif;
+	z-index:1200000;
 	position:absolute;
 }
 .sudoku{

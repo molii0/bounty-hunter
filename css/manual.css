@@ -1,4 +1,11 @@
 .manual{
+	@import url('https://fonts.googleapis.com/css2?family=Source+Han+Serif+CN:wght@400;700&family=ZCOOL+QingKe+HuangYou&family=Long+Cang&display=swap');
+}
+body {
+    font-family: 'Source Han Serif CN', serif;
+}
+
+.manual{
 	background-color:black;
 	color:white;
 	width:1000px;
@@ -8,6 +15,7 @@
 	z-index:1000;
 	font-size:20px;
 	line-height:50px;
+	font-family: 'Source Han Serif CN', serif;
 	display:none;
 }
 .copyright{

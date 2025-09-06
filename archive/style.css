@@ -32,6 +32,7 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
+    font-family: 'Times New Roman', Times, serif;
 }
 #achievementbutton:hover{
   filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
@@ -54,6 +55,7 @@
     border: none;
     font-size:25px;
     font-weight:300;
+    font-family: 'Times New Roman', Times, serif;
 }
 #aboutbutton:hover{
   filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
@@ -76,6 +78,7 @@
     border: none;
     font-size:25px;
     font-weight:300;
+    font-family: 'Times New Roman', Times, serif;
 }
 #backbutton:hover{
   filter: brightness(1.25) contrast(1.1) drop-shadow(0 0 8px rgba(255, 215, 126, 0.7));
@@ -137,7 +140,7 @@ h1 {
 .save-slot p {
     font-size: 30px;
     margin-bottom: 0;
-    color: #ff0000c4;
+    color: #070e03d1;
     text-shadow: 1px 1px 3px #00000080;
 }
 
@@ -147,7 +150,7 @@ h1 {
   background-color: #E6B800;
   border: 2px solid #8B5A2B;
   border-radius: 8px;
-  font-family: "KaiTi", "STKaiti", serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: 18px;
   color: #fff;
   cursor: pointer;
