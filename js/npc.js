@@ -166,6 +166,38 @@ function dialog(man){
 			}
 		}
 	}
+
+
+	else if (man=='old_knight_gem'){
+		text.style.display='block'; // 在switch case前面开启显示，播完之后在interact自动关，不用在这里关
+		//man_now='old_knight_gem';
+		switch(old_knight_gem){
+			case 0:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='嘿杰恩，看到那里的宝石了吗？那就是你要找的钥匙，去拿吧。';
+				old_knight_gem++;
+				person='end';
+				break;
+			}
+			case 1:{
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='你去拿宝石吧，我在这儿替你守着';
+				old_knight_gem++;
+				person='end';
+				break;
+			}
+			default:{ 
+				picture.innerHTML='<img src="./img/avatar/old_knight.png">';
+				title.innerHTML='韦斯';
+				texture.innerHTML='哦杰恩，需要思考的事我没法帮你，但我会替你守好门的';
+				person='end';
+				break;
+			}
+		}
+	}
+
 	else if (man == 'old_knight'){
 		text.style.display='block'; 
 		// man_now='old_knight';
@@ -361,6 +393,9 @@ function dialog(man){
 				title.innerHTML='韦斯';
 				texture.innerHTML='哦杰恩，需要思考的事我没法帮你，但我会替你守好门的';
 				person='end';
+
+				text.style.display='none'
+				transform('gem_room');
 				break;
 			}
 		}
